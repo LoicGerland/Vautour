@@ -245,6 +245,7 @@
             this.bt_jouer.TabIndex = 3;
             this.bt_jouer.Text = "Jouer";
             this.bt_jouer.UseVisualStyleBackColor = true;
+            this.bt_jouer.Click += new System.EventHandler(this.bt_jouer_Click);
             // 
             // Form1
             // 
