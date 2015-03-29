@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 
 namespace Vautour
 {
-    public partial class Form1 : Form
+    public partial class plateau : Form
     {
         List<Carte> CartesR; //Liste représentant la main du joueur et des IA
         List<Carte> CartesJ;
@@ -19,7 +19,7 @@ namespace Vautour
         List<Carte> CartesV;
         List<Carte> CartesN;
 
-        public Form1()
+        public plateau()
         {
             InitializeComponent();
             CartesR = new List<Carte>();
