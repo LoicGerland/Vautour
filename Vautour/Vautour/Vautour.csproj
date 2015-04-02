@@ -90,6 +90,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\Diapositive1.JPG" />
+    <Content Include="Image\Diapositive10.JPG" />
+    <Content Include="Image\Diapositive11.JPG" />
+    <Content Include="Image\Diapositive12.JPG" />
+    <Content Include="Image\Diapositive13.JPG" />
+    <Content Include="Image\Diapositive14.JPG" />
+    <Content Include="Image\Diapositive15.JPG" />
+    <Content Include="Image\Diapositive2.JPG" />
+    <Content Include="Image\Diapositive3.JPG" />
+    <Content Include="Image\Diapositive4.JPG" />
+    <Content Include="Image\Diapositive5.JPG" />
+    <Content Include="Image\Diapositive6.JPG" />
+    <Content Include="Image\Diapositive7.JPG" />
+    <Content Include="Image\Diapositive8.JPG" />
+    <Content Include="Image\Diapositive9.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

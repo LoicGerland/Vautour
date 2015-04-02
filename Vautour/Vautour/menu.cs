@@ -27,6 +27,9 @@ namespace Vautour
         {
             InitializeComponent();
 
+            
+
+
             cb_nbJ.DataSource = nbJoueurs;
             cb_diffIA1.Items.Clear();
             cb_diffIA2.Items.Clear();
@@ -40,6 +43,11 @@ namespace Vautour
                 cb_diffIA3.Items.Add(difficulté[i]);
                 cb_diffIA4.Items.Add(difficulté[i]);
             }
+
+            cb_diffIA1.SelectedIndex = 0;
+            cb_diffIA2.SelectedIndex = 0;
+            cb_diffIA3.SelectedIndex = 0;
+            cb_diffIA4.SelectedIndex = 0;
         }
 
         //Mise à jour des combo-box en fonction du nombre de joueurs

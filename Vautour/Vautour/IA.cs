@@ -8,11 +8,34 @@ namespace Vautour
 {
     class IA : Player
     {
-        private int difficulty; //Difficulté de l'IA (1: facile, 2: Intermédiaire, 3: Difficile)
+        private int difficulty; //Difficulté de l'IA (0: facile, 1: Intermédiaire, 2: Difficile, 3: Chuck Norris)
 
         public IA(String n,List<Carte> m,int d) : base(n, m)
         {
             this.difficulty = d;
+        }
+
+        public Carte play()
+        {
+            switch (this.difficulty)
+            {
+                case 0 :
+                case 1 :
+                case 2 :
+                case 3 :
+                    return playrand();
+                default: return playrand();
+                    
+            }
+        }
+
+        public Carte playrand()
+        {
+            Random r = new Random();
+            int i = r.Next(0, base.getCarte().Count() - 1);
+            Carte C = base.getCarte()[i];
+            this.removeCarte(i);
+            return C;
         }
     }
 }

@@ -193,12 +193,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bt_menuJouer;
         private System.Windows.Forms.Label lb_IA1;
-        private System.Windows.Forms.ComboBox cb_diffIA1;
         private System.Windows.Forms.Label lb_IA2;
-        private System.Windows.Forms.ComboBox cb_diffIA2;
         private System.Windows.Forms.Label lb_IA4;
-        private System.Windows.Forms.ComboBox cb_diffIA4;
         private System.Windows.Forms.Label lb_IA3;
-        private System.Windows.Forms.ComboBox cb_diffIA3;
+        internal System.Windows.Forms.ComboBox cb_diffIA1;
+        internal System.Windows.Forms.ComboBox cb_diffIA2;
+        internal System.Windows.Forms.ComboBox cb_diffIA4;
+        internal System.Windows.Forms.ComboBox cb_diffIA3;
     }
 }
