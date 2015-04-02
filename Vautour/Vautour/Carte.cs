@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vautour
 {
-    class Carte
+    public class Carte
     {
         private int value; //Valeur de la carte
 

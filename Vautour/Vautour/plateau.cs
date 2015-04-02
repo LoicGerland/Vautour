@@ -13,32 +13,22 @@ namespace Vautour
 {
     public partial class plateau : Form
     {
-        List<Carte> CartesR; //Liste représentant la main du joueur et des IA
-        List<Carte> CartesJ;
-        List<Carte> CartesB;
-        List<Carte> CartesV;
-        List<Carte> CartesN;
-
-        public plateau()
+        private Game game;
+        private List<Carte> pot;
+        private List<Player> joueurs;
+        public plateau(List<Player> players)
         {
             InitializeComponent();
-            CartesR = new List<Carte>();
-            CartesJ = new List<Carte>();
-            CartesB = new List<Carte>();
-            CartesV = new List<Carte>();
-            CartesN = new List<Carte>();
-
-            //Initialisation des jeux de cartes
-            for(int i =1; i<=15; i++)
+            this.joueurs = players;
+            pot = new List<Carte>();
+            for (int i =-5; i<= 10;i++)
             {
-                CartesR.Add(new Carte(i, i, "R"));
-                CartesJ.Add(new Carte(i, i, "J"));
-                CartesB.Add(new Carte(i, i, "B"));
-                CartesV.Add(new Carte(i, i, "V"));
-                CartesN.Add(new Carte(i, i, "N"));
+                pot.Add(new Carte(i,i+5,"P"));
             }
+            game = new Game(joueurs, pot);
+
             //Remplissage de la listBox
-            foreach(Carte c in CartesR)
+            foreach(Carte c in joueurs.Last().getCarte())
             {
                 lb_main.Items.Add(c.getValue());
             }
@@ -48,11 +38,11 @@ namespace Vautour
         private void bt_jouer_Click(object sender, EventArgs e)
         {
             //Suppression de la carte de la main
-            CartesR.RemoveAt(lb_main.SelectedIndex);
+            joueurs.Last().removeCarte(lb_main.SelectedIndex);
 
             //Suppression de la carte de la listBox et regénération de celle-ci
             lb_main.Items.Clear();
-            foreach (Carte c in CartesR)
+            foreach (Carte c in joueurs.Last().getCarte())
             {
                 lb_main.Items.Add(c.getValue());
             }

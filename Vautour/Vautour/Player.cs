@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vautour
 {
-    class Player
+    public class Player
     {
         private String nom; //Nom du joueur
 
@@ -21,6 +21,16 @@ namespace Vautour
         public String getNom()
         {
             return this.nom;
+        }
+
+        public List<Carte> getCarte()
+        {
+            return this.main;
+        }
+
+        public void removeCarte(int index)
+        {
+            this.main.RemoveAt(index);
         }
     }
 }
