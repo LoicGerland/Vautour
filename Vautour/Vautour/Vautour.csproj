@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carte.cs" />
+    <Compile Include="Human.cs" />
     <Compile Include="plateau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +107,21 @@
     <Content Include="Image\Diapositive7.JPG" />
     <Content Include="Image\Diapositive8.JPG" />
     <Content Include="Image\Diapositive9.JPG" />
+    <Content Include="Image\Souris\souris 1.jpg" />
+    <Content Include="Image\Souris\souris 10.jpg" />
+    <Content Include="Image\Souris\souris 2.jpg" />
+    <Content Include="Image\Souris\souris 3.jpg" />
+    <Content Include="Image\Souris\souris 4.jpg" />
+    <Content Include="Image\Souris\souris 5.jpg" />
+    <Content Include="Image\Souris\souris 6.jpg" />
+    <Content Include="Image\Souris\souris 7.jpg" />
+    <Content Include="Image\Souris\souris 8.jpg" />
+    <Content Include="Image\Souris\souris 9.jpg" />
+    <Content Include="Image\Vautour\vautour 1.jpg" />
+    <Content Include="Image\Vautour\vautour 2.jpg" />
+    <Content Include="Image\Vautour\vautour 3.jpg" />
+    <Content Include="Image\Vautour\vautour 4.jpg" />
+    <Content Include="Image\Vautour\vautour 5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

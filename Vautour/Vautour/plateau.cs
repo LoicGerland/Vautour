@@ -16,7 +16,6 @@ namespace Vautour
         private Game game;
         private List<Carte> pot;
         private List<Player> joueurs;
-        private Carte CP1, CIA1, CIA2, CIA3, CIA4;
         public plateau(List<Player> players)
         {
             InitializeComponent();
@@ -81,7 +80,7 @@ namespace Vautour
                 pb_P1.Image = sabotCartesJR.Images[CP1.getIndexImage() - 1];
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
-                playIA();
+                playIAs();
             }
         }
 
@@ -96,9 +95,8 @@ namespace Vautour
             }
         }
 
-        private void playIA()
+        private void playIAs()
         {
-            IA bot;
             Carte[] tapis = new Carte[joueurs.Count()-1];
             for (int i = 0; i < joueurs.Count() - 1; i++)
             {

@@ -82,21 +82,21 @@
             // 
             this.sabotDeCartesP.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("sabotDeCartesP.ImageStream")));
             this.sabotDeCartesP.TransparentColor = System.Drawing.Color.Transparent;
-            this.sabotDeCartesP.Images.SetKeyName(0, "Diapositive1.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(1, "Diapositive2.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(2, "Diapositive3.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(3, "Diapositive4.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(4, "Diapositive5.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(5, "Diapositive6.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(6, "Diapositive7.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(7, "Diapositive8.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(8, "Diapositive9.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(9, "Diapositive10.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(10, "Diapositive11.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(11, "Diapositive12.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(12, "Diapositive13.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(13, "Diapositive14.JPG");
-            this.sabotDeCartesP.Images.SetKeyName(14, "Diapositive15.JPG");
+            this.sabotDeCartesP.Images.SetKeyName(0, "vautour 5.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(1, "vautour 4.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(2, "vautour 3.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(3, "vautour 2.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(4, "vautour 1.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(5, "souris 1.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(6, "souris 2.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(7, "souris 3.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(8, "souris 4.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(9, "souris 5.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(10, "souris 6.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(11, "souris 7.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(12, "souris 8.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(13, "souris 9.jpg");
+            this.sabotDeCartesP.Images.SetKeyName(14, "souris 10.jpg");
             // 
             // pb_Pot
             // 
@@ -302,6 +302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(848, 648);
             this.Controls.Add(this.lb_IA4);
             this.Controls.Add(this.lb_P1);

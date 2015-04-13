@@ -27,9 +27,6 @@ namespace Vautour
         {
             InitializeComponent();
 
-            
-
-
             cb_nbJ.DataSource = nbJoueurs;
             cb_diffIA1.Items.Clear();
             cb_diffIA2.Items.Clear();
@@ -127,7 +124,7 @@ namespace Vautour
                     {
                         cartesR.Add(new Carte(i, i, "R"));
                     }
-                    Player P1 = new Player("P1",cartesR);
+                    Human P1 = new Human("P1",cartesR);
                     joueurs.Add(P1);
                     break;
                 default :
