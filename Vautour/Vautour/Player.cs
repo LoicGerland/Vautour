@@ -12,10 +12,15 @@ namespace Vautour
 
         private List<Carte> main; //Main du joueur
 
-        public Player(String n,List<Carte> m)
+        protected Carte lastCardPlayed; //Dernière carte jouée par le joueur 
+
+        protected int score; //Score du joueur
+
+        public Player(String n,List<Carte> m, int s)
         {
             this.nom = n;
             this.main = m;
+            this.score = s;
         }
 
         public String getNom()
@@ -26,6 +31,26 @@ namespace Vautour
         public List<Carte> getCarte()
         {
             return this.main;
+        }
+
+        public Carte getLastCardPlayed()
+        {
+            return lastCardPlayed;
+        }
+
+        public void setLastCardPlayed(Carte carte)
+        {
+            this.lastCardPlayed = carte;
+        }
+
+        public int getScore()
+        {
+            return this.score;
+        }
+
+        public void setScore(int s)
+        {
+            this.score += s; 
         }
 
         public void removeCarte(int index)

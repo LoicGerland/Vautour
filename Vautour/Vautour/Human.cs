@@ -8,7 +8,7 @@ namespace Vautour
 {
     public class Human : Player
     {
-        public Human(String n,List<Carte> m) : base(n,m)
+        public Human(String n,List<Carte> m, int score) : base(n,m,score)
         {
 
         }

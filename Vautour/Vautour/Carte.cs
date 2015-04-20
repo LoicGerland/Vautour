@@ -8,17 +8,20 @@ namespace Vautour
 {
     public class Carte
     {
-        private int value; //Valeur de la carte
+        private int value;   //Valeur de la carte
 
         private int indexImage; //Valeur de l'index dans le sabot pour récupérer l'image
 
         private String couleur; //Couleur de la carte
 
-        public Carte(int v, int index, String c)
+        private int type; //Type de la carte (0 : classique, 1 : souris, 2 : vautour)
+
+        public Carte(int v, int index, String c,int t)
         {
             this.value = v;
             this.indexImage = index;
             this.couleur = c;
+            this.type = t;
         }
 
         public int getValue()
@@ -34,6 +37,11 @@ namespace Vautour
         public String getCouleur()
         {
             return this.couleur;
+        }
+
+        public int getType()
+        {
+            return this.type;
         }
     }
 }

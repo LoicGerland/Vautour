@@ -86,45 +86,45 @@ namespace Vautour
                     cartesJ = new List<Carte>();
                     for (int i = 1; i <= 15; i++)
                     {
-                        cartesJ.Add(new Carte(i, i, "J"));
+                        cartesJ.Add(new Carte(i, i, "J",0));
                     }
-                    IA IA4 = new IA("Toto4", cartesJ, cb_diffIA4.SelectedIndex);
+                    IA IA4 = new IA("Toto4", cartesJ,0, cb_diffIA4.SelectedIndex);
                     joueurs.Add(IA4);
                     goto case 1;
                 case 1 :
                     cartesN = new List<Carte>();
-                    for(int i =1; i<=15; i++)
+                    for(int i = 1; i <= 15; i++)
                     {
-                        cartesN.Add(new Carte(i, i, "N"));
+                        cartesN.Add(new Carte(i, i, "N",0));
                     }
-                    IA IA3 = new IA("Toto3",cartesN,cb_diffIA3.SelectedIndex);
+                    IA IA3 = new IA("Toto3",cartesN,0,cb_diffIA3.SelectedIndex);
                     joueurs.Add(IA3);
                     goto case 2;
                 case 2 :
                     cartesV = new List<Carte>();
-                    for(int i =1; i<=15; i++)
+                    for(int i = 1; i <= 15; i++)
                     {
-                        cartesV.Add(new Carte(i, i, "V"));
+                        cartesV.Add(new Carte(i, i, "V",0));
                     }
-                    IA IA2 = new IA("Toto2",cartesV,cb_diffIA2.SelectedIndex);
+                    IA IA2 = new IA("Toto2",cartesV,0,cb_diffIA2.SelectedIndex);
                     joueurs.Add(IA2);
                     goto case 3;
                 case 3 :
                     cartesB = new List<Carte>();
-                    for(int i =1; i<=15; i++)
+                    for(int i = 1; i <= 15; i++)
                     {
-                        cartesB.Add(new Carte(i, i, "B"));
+                        cartesB.Add(new Carte(i, i, "B",0));
                     }
-                    IA IA1 = new IA("Toto1",cartesB,cb_diffIA1.SelectedIndex);
+                    IA IA1 = new IA("Toto1",cartesB,0,cb_diffIA1.SelectedIndex);
                     joueurs.Add(IA1);
                     goto case 4;
                 case 4 : 
                     cartesR = new List<Carte>();
-                    for(int i =1; i<=15; i++)
+                    for(int i = 1; i <= 15; i++)
                     {
-                        cartesR.Add(new Carte(i, i, "R"));
+                        cartesR.Add(new Carte(i, i, "R",0));
                     }
-                    Human P1 = new Human("P1",cartesR);
+                    Human P1 = new Human("P1",cartesR,0);
                     joueurs.Add(P1);
                     break;
                 default :

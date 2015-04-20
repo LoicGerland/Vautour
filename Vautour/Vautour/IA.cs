@@ -10,7 +10,7 @@ namespace Vautour
     {
         private int difficulty; //Difficulté de l'IA (0: facile, 1: Intermédiaire, 2: Difficile, 3: Chuck Norris)
 
-        public IA(String n,List<Carte> m,int d) : base(n, m)
+        public IA(String n,List<Carte> m,int score,int d) : base(n, m, score)
         {
             this.difficulty = d;
         }
@@ -32,9 +32,10 @@ namespace Vautour
         public Carte playrand()
         {
             Random r = new Random();
-            int i = r.Next(0, base.getCarte().Count() - 1);
-            Carte C = base.getCarte()[i];
+            int i = r.Next(0, this.getCarte().Count() - 1);
+            Carte C = this.getCarte()[i];
             this.removeCarte(i);
+            this.lastCardPlayed = C;
             return C;
         }
     }

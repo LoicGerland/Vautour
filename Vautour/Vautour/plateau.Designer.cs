@@ -50,6 +50,7 @@
             this.lb_IA1 = new System.Windows.Forms.Label();
             this.lb_P1 = new System.Windows.Forms.Label();
             this.lb_IA4 = new System.Windows.Forms.Label();
+            this.lb_winner = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA4)).BeginInit();
@@ -100,14 +101,17 @@
             // 
             // pb_Pot
             // 
+            this.pb_Pot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_Pot.Location = new System.Drawing.Point(382, 219);
             this.pb_Pot.Name = "pb_Pot";
             this.pb_Pot.Size = new System.Drawing.Size(109, 132);
             this.pb_Pot.TabIndex = 0;
             this.pb_Pot.TabStop = false;
+            this.pb_Pot.Click += new System.EventHandler(this.pb_Pot_Click);
             // 
             // pb_IA1
             // 
+            this.pb_IA1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_IA1.Location = new System.Drawing.Point(48, 198);
             this.pb_IA1.Name = "pb_IA1";
             this.pb_IA1.Size = new System.Drawing.Size(109, 132);
@@ -116,6 +120,7 @@
             // 
             // pb_IA4
             // 
+            this.pb_IA4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_IA4.Location = new System.Drawing.Point(697, 198);
             this.pb_IA4.Name = "pb_IA4";
             this.pb_IA4.Size = new System.Drawing.Size(109, 132);
@@ -124,6 +129,7 @@
             // 
             // pb_IA2
             // 
+            this.pb_IA2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_IA2.Location = new System.Drawing.Point(218, 12);
             this.pb_IA2.Name = "pb_IA2";
             this.pb_IA2.Size = new System.Drawing.Size(109, 132);
@@ -132,6 +138,7 @@
             // 
             // pb_P1
             // 
+            this.pb_P1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_P1.Location = new System.Drawing.Point(382, 430);
             this.pb_P1.Name = "pb_P1";
             this.pb_P1.Size = new System.Drawing.Size(109, 132);
@@ -237,6 +244,7 @@
             // 
             // pb_IA3
             // 
+            this.pb_IA3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_IA3.Location = new System.Drawing.Point(538, 12);
             this.pb_IA3.Name = "pb_IA3";
             this.pb_IA3.Size = new System.Drawing.Size(109, 132);
@@ -298,12 +306,22 @@
             this.lb_IA4.TabIndex = 4;
             this.lb_IA4.Text = "label1";
             // 
+            // lb_winner
+            // 
+            this.lb_winner.AutoSize = true;
+            this.lb_winner.Location = new System.Drawing.Point(537, 287);
+            this.lb_winner.Name = "lb_winner";
+            this.lb_winner.Size = new System.Drawing.Size(35, 13);
+            this.lb_winner.TabIndex = 5;
+            this.lb_winner.Text = "label1";
+            // 
             // plateau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(848, 648);
+            this.Controls.Add(this.lb_winner);
             this.Controls.Add(this.lb_IA4);
             this.Controls.Add(this.lb_P1);
             this.Controls.Add(this.lb_IA1);
@@ -334,8 +352,8 @@
         #endregion
 
         private System.Windows.Forms.ImageList sabotCartesJB;
-        private System.Windows.Forms.ImageList sabotDeCartesP;
-        private System.Windows.Forms.PictureBox pb_Pot;
+        public System.Windows.Forms.ImageList sabotDeCartesP;
+        public System.Windows.Forms.PictureBox pb_Pot;
         private System.Windows.Forms.PictureBox pb_IA1;
         private System.Windows.Forms.PictureBox pb_IA4;
         private System.Windows.Forms.PictureBox pb_IA2;
@@ -353,6 +371,7 @@
         private System.Windows.Forms.Label lb_IA1;
         private System.Windows.Forms.Label lb_P1;
         private System.Windows.Forms.Label lb_IA4;
+        private System.Windows.Forms.Label lb_winner;
     }
 }
 

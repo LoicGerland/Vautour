@@ -13,25 +13,39 @@ namespace Vautour
 {
     public partial class plateau : Form
     {
-        private Game game;
-        private List<Carte> pot;
-        private List<Player> joueurs;
+        private Game game;              //Objet Game représente la partie en cours
+
+        private List<Carte> pot;        //Le paquet de carte du milieu (Souris,Vautours)
+
+        private List<Player> joueurs;   //Liste des joueurs de la partie
+
+        private Player turnWinner;      //Gagnant du tour
+
         public plateau(List<Player> players)
         {
             InitializeComponent();
             this.joueurs = players;
-            pot = new List<Carte>();
-            for (int i =-5; i<= 10;i++)
-            {
-                pot.Add(new Carte(i,i+5,"P"));
-            }
-            game = new Game(joueurs, pot);
 
+            //Remplissage du pot
+            pot = new List<Carte>();
+            for (int i =-5; i<= -1;i++)
+            {
+                pot.Add(new Carte(i, i + 5,"P", 2));
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                pot.Add(new Carte(i + 1, i + 5, "P", 1));
+            }
+            //Création de la partie
+            game = new Game(joueurs, pot,this);
+
+            bt_jouer.Enabled = false;
             //Remplissage de la listBox
             foreach(Carte c in joueurs.Last().getCarte())
             {
                 lb_main.Items.Add(c.getValue());
             }
+            //Activation ou désactivation des joueurs suivant le nombre
             pb_IA1.Enabled = false; lb_IA1.Enabled = false; lb_IA1.Visible = false;
             pb_IA2.Enabled = false; lb_IA2.Enabled = false; lb_IA2.Visible = false;
             pb_IA3.Enabled = false; lb_IA3.Enabled = false; lb_IA3.Visible = false;
@@ -69,18 +83,20 @@ namespace Vautour
                     break;
             }
         }
-
         private void bt_jouer_Click(object sender, EventArgs e)
         {
             if (lb_main.SelectedIndex >= 0)
             {
                 //Suppression de la carte de la main
                 Carte CP1 = joueurs.Last().getCarte().ElementAt(lb_main.SelectedIndex);
+                joueurs.Last().setLastCardPlayed(CP1);
                 joueurs.Last().removeCarte(lb_main.SelectedIndex);
                 pb_P1.Image = sabotCartesJR.Images[CP1.getIndexImage() - 1];
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
                 playIAs();
+                turnWinner = game.checkTurn();
+                lb_winner.Text = turnWinner.getNom() + " gagne le tour";
             }
         }
 
@@ -97,34 +113,40 @@ namespace Vautour
 
         private void playIAs()
         {
-            Carte[] tapis = new Carte[joueurs.Count()-1];
             for (int i = 0; i < joueurs.Count() - 1; i++)
             {
-                tapis[i] = ((IA)joueurs[i]).play();
+                ((IA)joueurs[i]).play();
                 System.Threading.Thread.Sleep(10);
             }
             switch (joueurs.Count() - 1)
             {
                 case 1 :
-                    pb_IA1.Image = sabotCartesJB.Images[tapis[0].getIndexImage() - 1];
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
                 case 2 :
-                    pb_IA1.Image = sabotCartesJB.Images[tapis[1].getIndexImage() - 1];
-                    pb_IA2.Image = sabotCartesJV.Images[tapis[0].getIndexImage() - 1];
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA2.Image = sabotCartesJV.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
                 case 3 :
-                    pb_IA1.Image = sabotCartesJB.Images[tapis[2].getIndexImage() - 1];
-                    pb_IA2.Image = sabotCartesJV.Images[tapis[1].getIndexImage() - 1];
-                    pb_IA3.Image = sabotCartesJN.Images[tapis[0].getIndexImage() - 1];
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA2.Image = sabotCartesJV.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA3.Image = sabotCartesJN.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
                 case 4 :
-                    pb_IA1.Image = sabotCartesJB.Images[tapis[3].getIndexImage() - 1];
-                    pb_IA2.Image = sabotCartesJV.Images[tapis[2].getIndexImage() - 1];
-                    pb_IA3.Image = sabotCartesJN.Images[tapis[1].getIndexImage() - 1];
-                    pb_IA4.Image = sabotCartesJJ.Images[tapis[0].getIndexImage() - 1];
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[3].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA2.Image = sabotCartesJV.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA3.Image = sabotCartesJN.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA4.Image = sabotCartesJJ.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
             }
            
+        }
+
+        private void pb_Pot_Click(object sender, EventArgs e)
+        {
+            game.playTurn();
+            bt_jouer.Enabled = true;
+            pb_Pot.Enabled = false;
         }
 
     }
