@@ -51,31 +51,22 @@ namespace Vautour
         public Player checkTurn()
         {
             List<Player> p = new List<Player>();
-            Player currentPlayer = null;
             Player winner = null;
             bool _double = false;
 
             for (int i = 0; i < players.Count; i++)
             {
-                currentPlayer = players[i];
-
-                for (int j = i+1; j < players.Count; j++)
+                _double = false;
+                for (int j = 0; j < players.Count; j++)
                 {
-                    if (currentPlayer.getLastCardPlayed().getValue() == players[j].getLastCardPlayed().getValue())
+                    if (players[i].getLastCardPlayed().getValue() == players[j].getLastCardPlayed().getValue() && i!=j)
                     {
-                        players.RemoveAt(j);
                         _double = true;
                     }
                 }
-                if(_double)
+                if(_double==false)
                 {
-                    players.RemoveAt(i);
-                    i = i - 1;
-                    _double = false;
-                }
-                else
-                {
-                    p.Add(currentPlayer);
+                    p.Add(players[i]);
                 }
             }
             if (p.Count != 0)

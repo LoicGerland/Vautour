@@ -111,14 +111,14 @@ namespace Vautour
                         if (turnWinner.getNom() == joueurs[i].getNom())
                         {
                             joueurs[i].setScore(game.getCurrentCartes().getValue());
-                            lb_winner.Text = joueurs[i].getNom() + " prend la carte,\n il a maintenant " + joueurs[i].getScore() + " points";
+                            lb_winner.Text = joueurs[i].getNom() + " prend la carte,\nil a maintenant " + joueurs[i].getScore() + " points";
                             majDisplayScore();
                         }
                     }
                     if (pot.Count == 0)
                     {
                         Player playWinner = getWinner();
-                        System.Windows.Forms.MessageBox.Show("La partie est fini, le joueur " + turnWinner.getNom() + " remporte la partie avec " + turnWinner.getScore().ToString() + " points. Bravo à lui");
+                        System.Windows.Forms.MessageBox.Show("La partie est fini, le joueur " + playWinner.getNom() + " remporte la partie avec " + playWinner.getScore().ToString() + " points. Bravo à lui");
                         Application.Restart();
                     }
                 }
@@ -142,7 +142,7 @@ namespace Vautour
         private Player getWinner()
         {
             Player winner = joueurs[0];
-            for (int i = 1; i < joueurs.Count; i++)
+            for (int i = 0; i < joueurs.Count; i++)
             {
                 if (joueurs[i].getScore() > winner.getScore())
                 {
