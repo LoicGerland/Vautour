@@ -51,6 +51,11 @@
             this.lb_P1 = new System.Windows.Forms.Label();
             this.lb_IA4 = new System.Windows.Forms.Label();
             this.lb_winner = new System.Windows.Forms.Label();
+            this.lb_Score_IA4 = new System.Windows.Forms.Label();
+            this.lb_Score_IA2 = new System.Windows.Forms.Label();
+            this.lb_Score_IA3 = new System.Windows.Forms.Label();
+            this.lb_Score_P1 = new System.Windows.Forms.Label();
+            this.lb_Score_IA1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA4)).BeginInit();
@@ -309,11 +314,56 @@
             // lb_winner
             // 
             this.lb_winner.AutoSize = true;
-            this.lb_winner.Location = new System.Drawing.Point(537, 287);
+            this.lb_winner.Location = new System.Drawing.Point(497, 258);
             this.lb_winner.Name = "lb_winner";
-            this.lb_winner.Size = new System.Drawing.Size(35, 13);
+            this.lb_winner.Size = new System.Drawing.Size(39, 13);
             this.lb_winner.TabIndex = 5;
-            this.lb_winner.Text = "label1";
+            this.lb_winner.Text = "Label1";
+            // 
+            // lb_Score_IA4
+            // 
+            this.lb_Score_IA4.AutoSize = true;
+            this.lb_Score_IA4.Location = new System.Drawing.Point(694, 351);
+            this.lb_Score_IA4.Name = "lb_Score_IA4";
+            this.lb_Score_IA4.Size = new System.Drawing.Size(13, 13);
+            this.lb_Score_IA4.TabIndex = 6;
+            this.lb_Score_IA4.Text = "0";
+            // 
+            // lb_Score_IA2
+            // 
+            this.lb_Score_IA2.AutoSize = true;
+            this.lb_Score_IA2.Location = new System.Drawing.Point(215, 164);
+            this.lb_Score_IA2.Name = "lb_Score_IA2";
+            this.lb_Score_IA2.Size = new System.Drawing.Size(13, 13);
+            this.lb_Score_IA2.TabIndex = 7;
+            this.lb_Score_IA2.Text = "0";
+            // 
+            // lb_Score_IA3
+            // 
+            this.lb_Score_IA3.AutoSize = true;
+            this.lb_Score_IA3.Location = new System.Drawing.Point(538, 164);
+            this.lb_Score_IA3.Name = "lb_Score_IA3";
+            this.lb_Score_IA3.Size = new System.Drawing.Size(13, 13);
+            this.lb_Score_IA3.TabIndex = 7;
+            this.lb_Score_IA3.Text = "0";
+            // 
+            // lb_Score_P1
+            // 
+            this.lb_Score_P1.AutoSize = true;
+            this.lb_Score_P1.Location = new System.Drawing.Point(497, 500);
+            this.lb_Score_P1.Name = "lb_Score_P1";
+            this.lb_Score_P1.Size = new System.Drawing.Size(13, 13);
+            this.lb_Score_P1.TabIndex = 7;
+            this.lb_Score_P1.Text = "0";
+            // 
+            // lb_Score_IA1
+            // 
+            this.lb_Score_IA1.AutoSize = true;
+            this.lb_Score_IA1.Location = new System.Drawing.Point(45, 351);
+            this.lb_Score_IA1.Name = "lb_Score_IA1";
+            this.lb_Score_IA1.Size = new System.Drawing.Size(13, 13);
+            this.lb_Score_IA1.TabIndex = 6;
+            this.lb_Score_IA1.Text = "0";
             // 
             // plateau
             // 
@@ -321,6 +371,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(848, 648);
+            this.Controls.Add(this.lb_Score_P1);
+            this.Controls.Add(this.lb_Score_IA3);
+            this.Controls.Add(this.lb_Score_IA2);
+            this.Controls.Add(this.lb_Score_IA1);
+            this.Controls.Add(this.lb_Score_IA4);
             this.Controls.Add(this.lb_winner);
             this.Controls.Add(this.lb_IA4);
             this.Controls.Add(this.lb_P1);
@@ -372,6 +427,11 @@
         private System.Windows.Forms.Label lb_P1;
         private System.Windows.Forms.Label lb_IA4;
         private System.Windows.Forms.Label lb_winner;
+        private System.Windows.Forms.Label lb_Score_IA4;
+        private System.Windows.Forms.Label lb_Score_IA2;
+        private System.Windows.Forms.Label lb_Score_IA3;
+        private System.Windows.Forms.Label lb_Score_P1;
+        private System.Windows.Forms.Label lb_Score_IA1;
     }
 }
 

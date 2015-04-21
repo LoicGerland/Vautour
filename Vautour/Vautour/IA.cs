@@ -32,8 +32,8 @@ namespace Vautour
         public Carte playrand()
         {
             Random r = new Random();
-            int i = r.Next(0, this.getCarte().Count() - 1);
-            Carte C = this.getCarte()[i];
+            int i = r.Next(0, this.getCartes().Count() - 1);
+            Carte C = this.getCartes()[i];
             this.removeCarte(i);
             this.lastCardPlayed = C;
             return C;

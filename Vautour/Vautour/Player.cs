@@ -28,9 +28,14 @@ namespace Vautour
             return this.nom;
         }
 
-        public List<Carte> getCarte()
+        public List<Carte> getCartes()
         {
             return this.main;
+        }
+
+        public Carte getCarte(int index)
+        {
+            return this.main[index];
         }
 
         public Carte getLastCardPlayed()
@@ -51,6 +56,11 @@ namespace Vautour
         public void setScore(int s)
         {
             this.score += s; 
+        }
+
+        public void resetScore()
+        {
+            this.score = 0;
         }
 
         public void removeCarte(int index)

@@ -34,6 +34,11 @@ namespace Vautour
             return this.sabot;
         }
 
+        public Carte getCurrentCartes()
+        {
+            return this.currentCarte;
+        }
+
         public void playTurn()
         {
             Random r = new Random();
@@ -73,31 +78,34 @@ namespace Vautour
                     p.Add(currentPlayer);
                 }
             }
-
-            if(currentCarte.getType() == 1)
+            if (p.Count != 0)
             {
-                winner = p[0];
-                for(int i = 1; i < p.Count; i++)
+                if (currentCarte.getType() == 1)
                 {
-                    if(p[i].getLastCardPlayed().getValue() > winner.getLastCardPlayed().getValue())
+                    winner = p[0];
+                    for (int i = 1; i < p.Count; i++)
                     {
-                        winner = p[i];
+                        if (p[i].getLastCardPlayed().getValue() > winner.getLastCardPlayed().getValue())
+                        {
+                            winner = p[i];
+                        }
                     }
+                    return winner;
                 }
-                return winner;
-            }
-            else
-            {
-                winner = p[0];
-                for (int i = 1; i < p.Count; i++)
+                else
                 {
-                    if (p[i].getLastCardPlayed().getValue() < winner.getLastCardPlayed().getValue())
+                    winner = p[0];
+                    for (int i = 1; i < p.Count; i++)
                     {
-                        winner = p[i];
+                        if (p[i].getLastCardPlayed().getValue() < winner.getLastCardPlayed().getValue())
+                        {
+                            winner = p[i];
+                        }
                     }
+                    return winner;
                 }
-                return winner;
             }
+            else return null;
         }
     }
 }
