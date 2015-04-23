@@ -132,7 +132,7 @@ namespace Vautour
             {
                 lbl_main.Text = "Choisi une carte gros malin !";
             }
-            else if (joueurs.Count==0)
+            else if (joueurs.Count<=1)
             {
                 System.Windows.Forms.MessageBox.Show("Erreur : Il reste " + joueurs.Count +" joueur actuellement dans la partie");
             }
@@ -219,6 +219,11 @@ namespace Vautour
                     pb_IA4.Image = sabotCartesJJ.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
             }
+        }
+
+        public List<Player> getPlayers()
+        {
+            return this.joueurs;
         }
     }
 }
