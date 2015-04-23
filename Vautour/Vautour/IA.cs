@@ -15,17 +15,17 @@ namespace Vautour
             this.difficulty = d;
         }
 
-        public Carte play(Carte c)
+        public Carte play(Carte P1,Carte Pot)
         {
             switch (this.difficulty)
             {
                 case 0 :
                     return playrand();
                 case 1 :
-                    return playrandInt(abs(c.getValue()));
+                    return playrandInt(abs(Pot.getValue()));
                 case 2 :
                 case 3 :
-                    return playrand();
+                    return playChuck(P1,Pot);
                 default: return playrand();
                     
             }
@@ -35,6 +35,34 @@ namespace Vautour
         {
             Random r = new Random();
             int i = r.Next(0, this.getCartes().Count() - 1);
+            Carte C = this.getCartes()[i];
+            this.removeCarte(i);
+            this.lastCardPlayed = C;
+            return C;
+        }
+
+        public Carte playChuck(Carte P1, Carte Pot)
+        {
+            foreach (Carte c in this.getCartes())
+            {
+                if (c.getValue() == P1.getValue()+1)
+                {
+                    this.removeCarte(c);
+                    return c;
+                }
+            }
+            if (abs(Pot.getValue()) > 4)
+            {
+                foreach (Carte c in this.getCartes())
+                {
+                    if (c.getValue() == P1.getValue())
+                    {
+                        this.removeCarte(c);
+                        return c;
+                    }
+                }
+            }
+            int i = 0; 
             Carte C = this.getCartes()[i];
             this.removeCarte(i);
             this.lastCardPlayed = C;
