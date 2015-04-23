@@ -24,6 +24,7 @@ namespace Vautour
                 case 1 :
                     return playrandInt(abs(Pot.getValue()));
                 case 2 :
+                    return playSmart(Pot.getValue());
                 case 3 :
                     return playChuck(P1,Pot);
                 default: return playrand();
@@ -111,6 +112,36 @@ namespace Vautour
             this.removeCarte(i);
             this.lastCardPlayed = C;
             return C;
+        }
+
+        public Carte playSmart(int valCarte)
+        {
+            switch (valCarte)
+            {
+                //On joue les cartes de 1 à 4
+                case -2:
+                case -1:
+                case 1:
+                case 2:
+                    break;
+                //On joue les cartes de 5 à 8
+                case -4:
+                case -3:
+                case 3:
+                case 4:
+                    break;
+                //On joue les cartes de 8 à 12
+                case -5:
+                case 5:
+                case 6:
+                case 7:
+                    break;
+                //On joue les cartes de 13 à 15
+                case 8:
+                case 9:
+                case 10:
+                    break;
+            }
         }
     }
 }

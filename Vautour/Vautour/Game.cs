@@ -124,7 +124,7 @@ namespace Vautour
             {
                 for (int i = 0; i < players.Count(); i++)
                 {
-                    if (turnWinner.getNom() == players[i].getNom())
+                    if (turnWinner.Equals(players[i]))
                     {
                         players[i].setScore(currentCarte.getValue());
                         plateau.displayTextLbWinner(players[i].getNom() + " prend la carte,\nil a maintenant " + players[i].getScore() + " points");
