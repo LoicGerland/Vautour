@@ -43,5 +43,19 @@ namespace Vautour
         {
             return this.type;
         }
+
+        public String getStringByType()
+        {
+            switch (this.type)
+            {
+                case 0:
+                    return "Classique";
+                case 1:
+                    return "Souris";
+                case 2:
+                    return "Vautour";
+            }
+            return null;
+        }
     }
 }

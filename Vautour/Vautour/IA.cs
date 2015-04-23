@@ -35,41 +35,40 @@ namespace Vautour
         public Carte playrand()
         {
             Random r = new Random();
-            int i = r.Next(0, this.getCartes().Count() - 1);
+            int i = r.Next(0, this.getCartes().Count());
             Carte C = this.getCartes()[i];
             this.removeCarte(i);
-            this.lastCardPlayed = C;
+            this.setLastCardPlayed(C);
             return C;
         }
 
         public Carte playChuck(Carte P1, Carte Pot)
         {
-            foreach (Carte c in this.getCartes())
+            foreach (Carte C in this.getCartes())
             {
-                if (c.getValue() == P1.getValue()+1)
+                if (C.getValue() == P1.getValue()+1)
                 {
-                    this.removeCarte(c);
-                    this.lastCardPlayed = c;
-                    return c;
+                    this.removeCarte(C);
+                    this.setLastCardPlayed(C);
+                    return C;
                 }
             }
             if (abs(Pot.getValue()) > 4)
             {
-                foreach (Carte c in this.getCartes())
+                foreach (Carte C in this.getCartes())
                 {
-                    if (c.getValue() == P1.getValue())
+                    if (C.getValue() == P1.getValue())
                     {
-                        this.removeCarte(c);
-                        this.lastCardPlayed = c;
-                        return c;
+                        this.removeCarte(C);
+                        this.setLastCardPlayed(C);
+                        return C;
                     }
                 }
             }
-            int i = 0; 
-            Carte C = this.getCartes()[i];
-            this.removeCarte(i);
-            this.lastCardPlayed = C;
-            return C;
+            Carte c = this.getCartes()[0];
+            this.removeCarte(c);
+            this.lastCardPlayed = c;
+            return c;
         }
 
         public int abs(int i)
@@ -85,32 +84,40 @@ namespace Vautour
             Carte C = null;
             while(C==null)
             {
+                int minValue=-0, maxValue=15;
                 switch (valCarte)
                 {
                     case 1:
                     case 2:
                     case 3:
-                        i = r.Next(0,((this.getCartes().Count())/3)-1);
+                        minValue = 0;
+                        maxValue = (this.getCartes().Count/3);
+                        while (maxValue <= minValue) { maxValue++; }
                         break;
                     case 4:
                     case 5:
                     case 6:
-                        i = r.Next(((this.getCartes().Count()) / 3) - 1 , (2*(this.getCartes().Count()) / 3) - 1);
+                        minValue = (this.getCartes().Count / 3) - 1;
+                        maxValue = (2*(this.getCartes().Count) / 3);
+                        while (maxValue <= minValue) { maxValue++; }
                         break;
                     case 7:
                     case 8:
                     case 9:
                     case 10 :
-                        i = r.Next((2*(this.getCartes().Count()) / 3) - 1,(this.getCartes().Count()) - 1);
+                        minValue = (2*(this.getCartes().Count) / 3);
+                        maxValue = this.getCartes().Count;
+                        while (maxValue <= minValue) { maxValue++; }
                         break;
                     default :
-                        i = this.getCartes().Count() - 1;
+                        i = this.getCartes().Count();
                         break;
                 }
+                i=r.Next(minValue,maxValue);
                 C = this.getCarte(i);
             }
-            this.removeCarte(i);
-            this.lastCardPlayed = C;
+            this.removeCarte(C);
+            this.setLastCardPlayed(C);
             return C;
         }
 
@@ -123,25 +130,71 @@ namespace Vautour
                 case -1:
                 case 1:
                 case 2:
-                    break;
+                    return playCardInRank(1, 4);
                 //On joue les cartes de 5 à 8
                 case -4:
                 case -3:
                 case 3:
                 case 4:
-                    break;
+                    return playCardInRank(4, 9);
                 //On joue les cartes de 8 à 12
                 case -5:
                 case 5:
                 case 6:
                 case 7:
-                    break;
+                    return playCardInRank(9, 13);
                 //On joue les cartes de 13 à 15
                 case 8:
                 case 9:
                 case 10:
-                    break;
+                    return playCardInRank(13, 15);
             }
+            return null;
+        }
+
+        public Carte playCardByValue(int value)
+        {
+            foreach(Carte C in this.getCartes())
+            {
+                if (C.getValue() == value)
+                {
+                    this.removeCarte(C);
+                    this.setLastCardPlayed(C);
+                    return C;
+                }
+            }
+            return null;
+        }
+
+        public Carte playCardInRank(int min, int max)
+        {
+            if (min > max) { int tmp = min; min = max; max = tmp; }
+            while(!isInRank(min,max))
+            {
+                if (max <14) { max++; }
+                if (min > 1) { min--; }
+            }
+            if (isInRank(min, max))
+            {
+                Random r = new Random();
+                Carte c = null;
+                do
+                {
+                    c = this.playCardByValue((int)r.Next(min, max+1));
+                }
+                while (c==null);
+                return c;
+            }
+            else return null;
+        }
+
+        private bool isInRank(int min, int max)
+        {
+            foreach (Carte c in this.getCartes())
+            {
+                if (c.getValue() >= min && c.getValue() <= max) { return true; }
+            }
+            return false;
         }
     }
 }

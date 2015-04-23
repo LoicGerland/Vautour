@@ -60,6 +60,10 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déroulementDuJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recommencerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listbox_historique = new System.Windows.Forms.ListBox();
+            this.label_historique = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA4)).BeginInit();
@@ -111,8 +115,8 @@
             // 
             // pb_Pot
             // 
-            this.pb_Pot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_Pot.Location = new System.Drawing.Point(382, 219);
+            this.pb_Pot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pb_Pot.Location = new System.Drawing.Point(382, 246);
             this.pb_Pot.Name = "pb_Pot";
             this.pb_Pot.Size = new System.Drawing.Size(109, 132);
             this.pb_Pot.TabIndex = 0;
@@ -122,7 +126,7 @@
             // pb_IA1
             // 
             this.pb_IA1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_IA1.Location = new System.Drawing.Point(48, 198);
+            this.pb_IA1.Location = new System.Drawing.Point(48, 225);
             this.pb_IA1.Name = "pb_IA1";
             this.pb_IA1.Size = new System.Drawing.Size(109, 132);
             this.pb_IA1.TabIndex = 0;
@@ -131,7 +135,7 @@
             // pb_IA4
             // 
             this.pb_IA4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_IA4.Location = new System.Drawing.Point(697, 198);
+            this.pb_IA4.Location = new System.Drawing.Point(697, 225);
             this.pb_IA4.Name = "pb_IA4";
             this.pb_IA4.Size = new System.Drawing.Size(109, 132);
             this.pb_IA4.TabIndex = 0;
@@ -140,7 +144,7 @@
             // pb_IA2
             // 
             this.pb_IA2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_IA2.Location = new System.Drawing.Point(218, 12);
+            this.pb_IA2.Location = new System.Drawing.Point(218, 39);
             this.pb_IA2.Name = "pb_IA2";
             this.pb_IA2.Size = new System.Drawing.Size(109, 132);
             this.pb_IA2.TabIndex = 0;
@@ -149,7 +153,7 @@
             // pb_P1
             // 
             this.pb_P1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_P1.Location = new System.Drawing.Point(382, 430);
+            this.pb_P1.Location = new System.Drawing.Point(382, 457);
             this.pb_P1.Name = "pb_P1";
             this.pb_P1.Size = new System.Drawing.Size(109, 132);
             this.pb_P1.TabIndex = 0;
@@ -238,7 +242,7 @@
             // lb_main
             // 
             this.lb_main.FormattingEnabled = true;
-            this.lb_main.Location = new System.Drawing.Point(275, 430);
+            this.lb_main.Location = new System.Drawing.Point(275, 457);
             this.lb_main.Name = "lb_main";
             this.lb_main.Size = new System.Drawing.Size(52, 160);
             this.lb_main.TabIndex = 1;
@@ -246,7 +250,7 @@
             // lbl_main
             // 
             this.lbl_main.AutoSize = true;
-            this.lbl_main.Location = new System.Drawing.Point(272, 593);
+            this.lbl_main.Location = new System.Drawing.Point(272, 620);
             this.lbl_main.Name = "lbl_main";
             this.lbl_main.Size = new System.Drawing.Size(30, 13);
             this.lbl_main.TabIndex = 2;
@@ -255,7 +259,7 @@
             // pb_IA3
             // 
             this.pb_IA3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_IA3.Location = new System.Drawing.Point(538, 12);
+            this.pb_IA3.Location = new System.Drawing.Point(538, 39);
             this.pb_IA3.Name = "pb_IA3";
             this.pb_IA3.Size = new System.Drawing.Size(109, 132);
             this.pb_IA3.TabIndex = 0;
@@ -263,7 +267,7 @@
             // 
             // bt_jouer
             // 
-            this.bt_jouer.Location = new System.Drawing.Point(333, 567);
+            this.bt_jouer.Location = new System.Drawing.Point(333, 594);
             this.bt_jouer.Name = "bt_jouer";
             this.bt_jouer.Size = new System.Drawing.Size(75, 23);
             this.bt_jouer.TabIndex = 3;
@@ -274,7 +278,7 @@
             // lb_IA3
             // 
             this.lb_IA3.AutoSize = true;
-            this.lb_IA3.Location = new System.Drawing.Point(538, 151);
+            this.lb_IA3.Location = new System.Drawing.Point(538, 178);
             this.lb_IA3.Name = "lb_IA3";
             this.lb_IA3.Size = new System.Drawing.Size(35, 13);
             this.lb_IA3.TabIndex = 4;
@@ -283,7 +287,7 @@
             // lb_IA2
             // 
             this.lb_IA2.AutoSize = true;
-            this.lb_IA2.Location = new System.Drawing.Point(215, 151);
+            this.lb_IA2.Location = new System.Drawing.Point(215, 178);
             this.lb_IA2.Name = "lb_IA2";
             this.lb_IA2.Size = new System.Drawing.Size(35, 13);
             this.lb_IA2.TabIndex = 4;
@@ -292,7 +296,7 @@
             // lb_IA1
             // 
             this.lb_IA1.AutoSize = true;
-            this.lb_IA1.Location = new System.Drawing.Point(45, 338);
+            this.lb_IA1.Location = new System.Drawing.Point(45, 365);
             this.lb_IA1.Name = "lb_IA1";
             this.lb_IA1.Size = new System.Drawing.Size(35, 13);
             this.lb_IA1.TabIndex = 4;
@@ -301,7 +305,7 @@
             // lb_P1
             // 
             this.lb_P1.AutoSize = true;
-            this.lb_P1.Location = new System.Drawing.Point(497, 487);
+            this.lb_P1.Location = new System.Drawing.Point(497, 514);
             this.lb_P1.Name = "lb_P1";
             this.lb_P1.Size = new System.Drawing.Size(35, 13);
             this.lb_P1.TabIndex = 4;
@@ -310,7 +314,7 @@
             // lb_IA4
             // 
             this.lb_IA4.AutoSize = true;
-            this.lb_IA4.Location = new System.Drawing.Point(694, 338);
+            this.lb_IA4.Location = new System.Drawing.Point(694, 365);
             this.lb_IA4.Name = "lb_IA4";
             this.lb_IA4.Size = new System.Drawing.Size(35, 13);
             this.lb_IA4.TabIndex = 4;
@@ -319,7 +323,7 @@
             // lb_winner
             // 
             this.lb_winner.AutoSize = true;
-            this.lb_winner.Location = new System.Drawing.Point(497, 258);
+            this.lb_winner.Location = new System.Drawing.Point(497, 285);
             this.lb_winner.Name = "lb_winner";
             this.lb_winner.Size = new System.Drawing.Size(39, 13);
             this.lb_winner.TabIndex = 5;
@@ -328,7 +332,7 @@
             // lb_Score_IA4
             // 
             this.lb_Score_IA4.AutoSize = true;
-            this.lb_Score_IA4.Location = new System.Drawing.Point(694, 351);
+            this.lb_Score_IA4.Location = new System.Drawing.Point(694, 378);
             this.lb_Score_IA4.Name = "lb_Score_IA4";
             this.lb_Score_IA4.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA4.TabIndex = 6;
@@ -337,7 +341,7 @@
             // lb_Score_IA2
             // 
             this.lb_Score_IA2.AutoSize = true;
-            this.lb_Score_IA2.Location = new System.Drawing.Point(215, 164);
+            this.lb_Score_IA2.Location = new System.Drawing.Point(215, 191);
             this.lb_Score_IA2.Name = "lb_Score_IA2";
             this.lb_Score_IA2.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA2.TabIndex = 7;
@@ -346,7 +350,7 @@
             // lb_Score_IA3
             // 
             this.lb_Score_IA3.AutoSize = true;
-            this.lb_Score_IA3.Location = new System.Drawing.Point(538, 164);
+            this.lb_Score_IA3.Location = new System.Drawing.Point(538, 191);
             this.lb_Score_IA3.Name = "lb_Score_IA3";
             this.lb_Score_IA3.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA3.TabIndex = 7;
@@ -355,7 +359,7 @@
             // lb_Score_P1
             // 
             this.lb_Score_P1.AutoSize = true;
-            this.lb_Score_P1.Location = new System.Drawing.Point(497, 500);
+            this.lb_Score_P1.Location = new System.Drawing.Point(497, 527);
             this.lb_Score_P1.Name = "lb_Score_P1";
             this.lb_Score_P1.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_P1.TabIndex = 7;
@@ -364,7 +368,7 @@
             // lb_Score_IA1
             // 
             this.lb_Score_IA1.AutoSize = true;
-            this.lb_Score_IA1.Location = new System.Drawing.Point(45, 351);
+            this.lb_Score_IA1.Location = new System.Drawing.Point(45, 378);
             this.lb_Score_IA1.Name = "lb_Score_IA1";
             this.lb_Score_IA1.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA1.TabIndex = 6;
@@ -373,7 +377,9 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aideToolStripMenuItem});
+            this.aideToolStripMenuItem,
+            this.recommencerToolStripMenuItem,
+            this.quitterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(848, 24);
@@ -403,13 +409,46 @@
             this.déroulementDuJeuToolStripMenuItem.Text = "Déroulement du jeu";
             this.déroulementDuJeuToolStripMenuItem.Click += new System.EventHandler(this.déroulementDuJeuToolStripMenuItem_Click);
             // 
+            // recommencerToolStripMenuItem
+            // 
+            this.recommencerToolStripMenuItem.Name = "recommencerToolStripMenuItem";
+            this.recommencerToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.recommencerToolStripMenuItem.Text = "Recommencer";
+            this.recommencerToolStripMenuItem.Click += new System.EventHandler(this.recommencerToolStripMenuItem_Click);
+            // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click_1);
+            // 
+            // listbox_historique
+            // 
+            this.listbox_historique.FormattingEnabled = true;
+            this.listbox_historique.Location = new System.Drawing.Point(609, 421);
+            this.listbox_historique.Name = "listbox_historique";
+            this.listbox_historique.Size = new System.Drawing.Size(168, 199);
+            this.listbox_historique.TabIndex = 9;
+            // 
+            // label_historique
+            // 
+            this.label_historique.AutoSize = true;
+            this.label_historique.Location = new System.Drawing.Point(609, 402);
+            this.label_historique.Name = "label_historique";
+            this.label_historique.Size = new System.Drawing.Size(120, 13);
+            this.label_historique.TabIndex = 10;
+            this.label_historique.Text = "Historique des manches";
+            // 
             // plateau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(848, 648);
+            this.ClientSize = new System.Drawing.Size(848, 649);
+            this.Controls.Add(this.label_historique);
+            this.Controls.Add(this.listbox_historique);
             this.Controls.Add(this.lb_Score_P1);
             this.Controls.Add(this.lb_Score_IA3);
             this.Controls.Add(this.lb_Score_IA2);
@@ -483,6 +522,10 @@
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem déroulementDuJeuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recommencerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+        private System.Windows.Forms.ListBox listbox_historique;
+        private System.Windows.Forms.Label label_historique;
     }
 }
 

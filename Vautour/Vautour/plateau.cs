@@ -131,6 +131,7 @@ namespace Vautour
             bt_jouer.Enabled = true;
             bt_jouer.Visible = true;
             pb_Pot.Enabled = false;
+            lb_winner.Text = "Vous jouez pour une carte " + game.currentCarte.getStringByType() + "\nde valeur " + game.currentCarte.getValue().ToString();
         }
 
         public void majDisplayScore()
@@ -196,13 +197,29 @@ namespace Vautour
 
         private void déroulementDuJeuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show("Cliquer sur le cadre centrale pour retourner la carte du pot\nChoisir dans la liste déroulante la valeur de la carte à jouer, cliquer sur jouer et recommencer","Déroulement da la partie");
+            System.Windows.Forms.MessageBox.Show("1_Cliquer sur le cadre au centre pour retourner une carte du pot\n2_Choisir dans la liste déroulante la valeur de la carte à jouer\n3_Cliquer sur jouer pour poser votre carte\n4_Goto 1_","Déroulement da la partie");
         }
 
         private void regleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.MessageBox.Show("Règle du jeu\n\nLe but du jeu est de totaliser le maximum de points en remportant les cartes 'souris' (positive) et en évitant de ramasser les cartes 'vautours' (négative).\n\nLe jeu contient :\n\tdes cartes numérotées de 1 à 15 dans 5 couleurs différentes.\n\tdes cartes 'souris' numérotées de 1 à 10.\n\tdes cartes 'vautours' numérotées de -1 à -5.\n\nDéroulement\n\nChaque joueur prend toutes les cartes d'une couleur. Les cartes 'souris' et 'vautours' sont mélangées et forment un talon caché. Une carte du talon est retournée. Les joueurs choisissent en secret une carte de leur jeu et la posent face cachée sur la table. Toutes les cartes sont retournées en même temps. Deux cas se présentent :\n\tsi la carte retournée est une carte 'souris', le joueur qui a posé la carte la plus forte remporte la 'souris'.\n\tsi la carte retournée est une carte 'vautour', le joueur qui a posé la carte la plus faible remporte le 'vautour'.\n\nSi 2 joueurs jouent une carte de même valeur, ces cartes s'annulent.\n\nSi la carte retournée est une 'souris' et que les 2 cartes qui s'annulent sont les plus fortes, c'est le joueur qui a joué la carte la plus forte après les cartes annulées qui remporte la 'souris'. Si la carte retournée est un 'vautour' et que les 2 cartes qui s'annulent sont les plus faibles, c'est le joueur qui a joué la carte la plus faible après les cartes annulées qui remporte le 'vautour'.\n\nLes cartes des joueurs sont ensuite défaussées ; on retourne une nouvelle carte du talon et on recommence.\n\nFin de partie\n\nLa partie s'arrête quand il n'y a plus de carte dans le talon et que les joueurs ont posé toutes leurs cartes. Chaque joueur fait le compte des points des cartes positives et négatives qu'il a ramassées au cours du jeu. Le vainqueur est celui qui totalise le plus grand score.", "Règles dans le Game");
 
+        }
+
+
+        private void recommencerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void quitterToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public void addTurnInHistoric(Carte C, Player P)
+        {
+            listbox_historique.Items.Add(P.getNom() + " : " + C.getValue().ToString()+ "; Score : "+P.getScore());
         }
     }
 }

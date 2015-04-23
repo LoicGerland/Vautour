@@ -51,6 +51,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.règleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,7 +261,8 @@
             // 
             this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aideToolStripMenuItem});
+            this.aideToolStripMenuItem,
+            this.quitterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(317, 24);
@@ -278,9 +280,16 @@
             // règleToolStripMenuItem
             // 
             this.règleToolStripMenuItem.Name = "règleToolStripMenuItem";
-            this.règleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.règleToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.règleToolStripMenuItem.Text = "Règle";
             this.règleToolStripMenuItem.Click += new System.EventHandler(this.règleToolStripMenuItem_Click);
+            // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // menu
             // 
@@ -288,7 +297,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(317, 341);
+            this.ClientSize = new System.Drawing.Size(317, 342);
             this.Controls.Add(this.tb_IA4);
             this.Controls.Add(this.tb_IA3);
             this.Controls.Add(this.tb_IA2);
@@ -350,5 +359,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem règleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
     }
 }
