@@ -73,7 +73,8 @@ namespace Vautour
                     if (tmp[i].getLastCardPlayed().getValue() == tmp[j].getLastCardPlayed().getValue())
                     {
                         _double = true;
-                        tmp.RemoveAt(j);                        
+                        tmp.RemoveAt(j);    
+                        j--;
                     }
                 }
                 if(_double)

@@ -19,8 +19,6 @@ namespace Vautour
 
         private List<Player> joueurs;   //Liste des joueurs de la partie
 
-        private Player turnWinner;      //Gagnant du tour
-
         public plateau(List<Player> players)
         {
             InitializeComponent();
@@ -102,8 +100,7 @@ namespace Vautour
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
                 game.playIAs(CP1);
-                turnWinner = game.checkTurn();
-                game.addScore(turnWinner);
+                game.addScore(game.checkTurn());
 
                 //tirage de la nouvelle carte autorisé
                 pb_Pot.Enabled = true;
