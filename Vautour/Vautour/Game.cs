@@ -52,7 +52,7 @@ namespace Vautour
         {
             for (int i = 0; i < players.Count() - 1; i++)
             {
-                ((IA)players[i]).play();
+                ((IA)players[i]).play(currentCarte);
                 System.Threading.Thread.Sleep(10);
             }
             plateau.displayCards(players.Count - 1);
@@ -115,6 +115,45 @@ namespace Vautour
                 }
             }
             else return null;
+        }
+
+        public void addScore(Player turnWinner)
+        {
+            if (turnWinner != null)
+            {
+                for (int i = 0; i < players.Count(); i++)
+                {
+                    if (turnWinner.getNom() == players[i].getNom())
+                    {
+                        players[i].setScore(currentCarte.getValue());
+                        plateau.displayTextLbWinner(players[i].getNom() + " prend la carte,\nil a maintenant " + players[i].getScore() + " points");
+                        plateau.majDisplayScore();
+                    }
+                }
+                if (sabot.Count == 0)
+                {
+                    Player playWinner = getWinner();
+                    plateau.displayMessage("La partie est fini, le joueur " + playWinner.getNom() + " remporte la partie avec " + playWinner.getScore().ToString() + " points. Bravo à lui");
+                    Application.Restart();
+                }
+            }
+            else
+            {
+                plateau.displayTextLbWinner("Aucun joueur ne prend cette carte,\nil y a surement égalité.");
+            }
+        }
+
+        private Player getWinner()
+        {
+            Player winner = players[0];
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].getScore() > winner.getScore())
+                {
+                    winner = players[i];
+                }
+            }
+            return winner;
         }
     }
 }

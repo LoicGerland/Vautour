@@ -103,28 +103,8 @@ namespace Vautour
                 majLB();
                 game.playIAs();
                 turnWinner = game.checkTurn();
-                if (turnWinner != null)
-                {
-                    for (int i = 0; i < joueurs.Count(); i++)
-                    {
-                        if (turnWinner.getNom() == joueurs[i].getNom())
-                        {
-                            joueurs[i].setScore(game.getCurrentCartes().getValue());
-                            lb_winner.Text = joueurs[i].getNom() + " prend la carte,\nil a maintenant " + joueurs[i].getScore() + " points";
-                            majDisplayScore();
-                        }
-                    }
-                    if (pot.Count == 0)
-                    {
-                        Player playWinner = getWinner();
-                        System.Windows.Forms.MessageBox.Show("La partie est fini, le joueur " + playWinner.getNom() + " remporte la partie avec " + playWinner.getScore().ToString() + " points. Bravo à lui");
-                        Application.Restart();
-                    }
-                }
-                else
-                {
-                    lb_winner.Text = "Aucun joueur ne prend cette carte,\nil y a surement égalité.";
-                }
+                game.addScore(turnWinner);
+
                 //tirage de la nouvelle carte autorisé
                 pb_Pot.Enabled = true;
             }
@@ -137,20 +117,6 @@ namespace Vautour
                 System.Windows.Forms.MessageBox.Show("Erreur : Il reste " + joueurs.Count +" joueur actuellement dans la partie");
             }
         }
-
-        private Player getWinner()
-        {
-            Player winner = joueurs[0];
-            for (int i = 0; i < joueurs.Count; i++)
-            {
-                if (joueurs[i].getScore() > winner.getScore())
-                {
-                    winner = joueurs[i];
-                }
-            }
-            return winner;
-        }
-
 
         private void majLB()
         {
@@ -170,7 +136,7 @@ namespace Vautour
             pb_Pot.Enabled = false;
         }
 
-        private void majDisplayScore()
+        public void majDisplayScore()
         {
             switch (joueurs.Count() - 1)
             {
@@ -178,19 +144,19 @@ namespace Vautour
                     lb_Score_IA1.Text = joueurs[0].getScore().ToString();
                     break;
                 case 2:
-                    lb_Score_IA2.Text = joueurs[1].getScore().ToString();
-                    lb_Score_IA1.Text = joueurs[0].getScore().ToString();
+                    lb_Score_IA1.Text = joueurs[1].getScore().ToString();
+                    lb_Score_IA2.Text = joueurs[0].getScore().ToString();
                     break;
                 case 3:
-                    lb_Score_IA3.Text = joueurs[2].getScore().ToString();
+                    lb_Score_IA1.Text = joueurs[2].getScore().ToString();
                     lb_Score_IA2.Text = joueurs[1].getScore().ToString();
-                    lb_Score_IA1.Text = joueurs[0].getScore().ToString();
+                    lb_Score_IA3.Text = joueurs[0].getScore().ToString();
                     break;
                 case 4:
-                    lb_Score_IA4.Text = joueurs[3].getScore().ToString();
-                    lb_Score_IA3.Text = joueurs[2].getScore().ToString();
-                    lb_Score_IA2.Text = joueurs[1].getScore().ToString();
-                    lb_Score_IA1.Text = joueurs[0].getScore().ToString();
+                    lb_Score_IA1.Text = joueurs[3].getScore().ToString();
+                    lb_Score_IA2.Text = joueurs[2].getScore().ToString();
+                    lb_Score_IA3.Text = joueurs[1].getScore().ToString();
+                    lb_Score_IA4.Text = joueurs[0].getScore().ToString();
                     break;
             }
             lb_Score_P1.Text = joueurs.Last().getScore().ToString();
@@ -221,9 +187,14 @@ namespace Vautour
             }
         }
 
-        public List<Player> getPlayers()
+        public void displayTextLbWinner(String s)
         {
-            return this.joueurs;
+            lb_winner.Text = s;
+        }
+
+        public void displayMessage(String s)
+        {
+            System.Windows.Forms.MessageBox.Show(s);
         }
     }
 }
