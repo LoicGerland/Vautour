@@ -48,23 +48,41 @@ namespace Vautour
             sabot.RemoveAt(rang);
         }
 
+        public void playIAs()
+        {
+            for (int i = 0; i < players.Count() - 1; i++)
+            {
+                ((IA)players[i]).play();
+                System.Threading.Thread.Sleep(10);
+            }
+            plateau.displayCards(players.Count - 1);
+        }
+
         public Player checkTurn()
         {
             List<Player> p = new List<Player>();
+            List<Player> tmp = this.players;
             Player winner = null;
             bool _double = false;
 
-            for (int i = 0; i < players.Count; i++)
+            for (int i = 0; i < tmp.Count; i++)
             {
                 _double = false;
-                for (int j = 0; j < players.Count; j++)
+                for (int j = i + 1; j < tmp.Count; j++)
                 {
-                    if (players[i].getLastCardPlayed().getValue() == players[j].getLastCardPlayed().getValue() && i!=j)
+                    if (tmp[i].getLastCardPlayed().getValue() == tmp[j].getLastCardPlayed().getValue())
                     {
                         _double = true;
+                        tmp.RemoveAt(j);                        
                     }
                 }
-                if(_double==false)
+                if(_double)
+                {
+                    tmp.RemoveAt(i);
+                    _double = false;
+                    i = i - 1;
+                }
+                else
                 {
                     p.Add(players[i]);
                 }

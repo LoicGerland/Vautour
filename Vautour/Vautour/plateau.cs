@@ -90,7 +90,6 @@ namespace Vautour
             if (lb_main.SelectedIndex >= 0 && joueurs.Count!=0)
             {
                 //Interdiction de rejouer instantannement
-                
                 bt_jouer.Enabled = false;
                 bt_jouer.Visible = false;
                 lbl_main.Text = "Main";
@@ -102,7 +101,7 @@ namespace Vautour
                 pb_P1.Image = sabotCartesJR.Images[CP1.getIndexImage() - 1];
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
-                playIAs();
+                game.playIAs();
                 turnWinner = game.checkTurn();
                 if (turnWinner != null)
                 {
@@ -163,37 +162,6 @@ namespace Vautour
             }
         }
 
-        private void playIAs()
-        {
-            for (int i = 0; i < joueurs.Count() - 1; i++)
-            {
-                ((IA)joueurs[i]).play();
-                System.Threading.Thread.Sleep(10);
-            }
-            switch (joueurs.Count() - 1)
-            {
-                case 1:
-                    pb_IA1.Image = sabotCartesJB.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
-                    break;
-                case 2:
-                    pb_IA1.Image = sabotCartesJB.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
-                    pb_IA2.Image = sabotCartesJV.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
-                    break;
-                case 3:
-                    pb_IA1.Image = sabotCartesJB.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
-                    pb_IA2.Image = sabotCartesJV.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
-                    pb_IA3.Image = sabotCartesJN.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
-                    break;
-                case 4:
-                    pb_IA1.Image = sabotCartesJB.Images[joueurs[3].getLastCardPlayed().getIndexImage() - 1];
-                    pb_IA2.Image = sabotCartesJV.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
-                    pb_IA3.Image = sabotCartesJN.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
-                    pb_IA4.Image = sabotCartesJJ.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
-                    break;
-            }
-
-        }
-
         private void pb_Pot_Click(object sender, EventArgs e)
         {
             game.playTurn();
@@ -226,6 +194,31 @@ namespace Vautour
                     break;
             }
             lb_Score_P1.Text = joueurs.Last().getScore().ToString();
+        }
+
+        public void displayCards(int nbJoueurs)
+        {
+            switch (nbJoueurs)
+            {
+                case 1:
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
+                    break;
+                case 2:
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA2.Image = sabotCartesJV.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
+                    break;
+                case 3:
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA2.Image = sabotCartesJV.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA3.Image = sabotCartesJN.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
+                    break;
+                case 4:
+                    pb_IA1.Image = sabotCartesJB.Images[joueurs[3].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA2.Image = sabotCartesJV.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA3.Image = sabotCartesJN.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
+                    pb_IA4.Image = sabotCartesJJ.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
+                    break;
+            }
         }
     }
 }
