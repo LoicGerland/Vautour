@@ -56,12 +56,17 @@
             this.lb_Score_IA3 = new System.Windows.Forms.Label();
             this.lb_Score_P1 = new System.Windows.Forms.Label();
             this.lb_Score_IA1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.déroulementDuJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA3)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sabotCartesJB
@@ -365,10 +370,44 @@
             this.lb_Score_IA1.TabIndex = 6;
             this.lb_Score_IA1.Text = "0";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aideToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(848, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // aideToolStripMenuItem
+            // 
+            this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regleToolStripMenuItem,
+            this.déroulementDuJeuToolStripMenuItem});
+            this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.aideToolStripMenuItem.Text = "Aide";
+            // 
+            // regleToolStripMenuItem
+            // 
+            this.regleToolStripMenuItem.Name = "regleToolStripMenuItem";
+            this.regleToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.regleToolStripMenuItem.Text = "Regle";
+            this.regleToolStripMenuItem.Click += new System.EventHandler(this.regleToolStripMenuItem_Click);
+            // 
+            // déroulementDuJeuToolStripMenuItem
+            // 
+            this.déroulementDuJeuToolStripMenuItem.Name = "déroulementDuJeuToolStripMenuItem";
+            this.déroulementDuJeuToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.déroulementDuJeuToolStripMenuItem.Text = "Déroulement du jeu";
+            this.déroulementDuJeuToolStripMenuItem.Click += new System.EventHandler(this.déroulementDuJeuToolStripMenuItem_Click);
+            // 
             // plateau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(848, 648);
             this.Controls.Add(this.lb_Score_P1);
@@ -391,7 +430,13 @@
             this.Controls.Add(this.bt_jouer);
             this.Controls.Add(this.lbl_main);
             this.Controls.Add(this.lb_main);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(864, 687);
+            this.MinimumSize = new System.Drawing.Size(864, 687);
             this.Name = "plateau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stupid vautour";
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA1)).EndInit();
@@ -399,6 +444,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_P1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA3)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,6 +479,10 @@
         private System.Windows.Forms.Label lb_Score_IA3;
         private System.Windows.Forms.Label lb_Score_P1;
         private System.Windows.Forms.Label lb_Score_IA1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem déroulementDuJeuToolStripMenuItem;
     }
 }
 
