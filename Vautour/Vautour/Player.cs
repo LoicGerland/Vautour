@@ -67,5 +67,10 @@ namespace Vautour
         {
             this.main.RemoveAt(index);
         }
+
+        public void removeCarte(Carte C)
+        {
+            this.main.Remove(C);
+        }
     }
 }
