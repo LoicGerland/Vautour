@@ -61,7 +61,7 @@ namespace Vautour
         public Player checkTurn()
         {
             List<Player> p = new List<Player>();
-            List<Player> tmp = this.players;
+            List<Player> tmp = new List<Player>(this.players);
             Player winner = null;
             bool _double = false;
 
@@ -84,7 +84,7 @@ namespace Vautour
                 }
                 else
                 {
-                    p.Add(players[i]);
+                    p.Add(tmp[i]);
                 }
             }
             if (p.Count != 0)
