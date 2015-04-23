@@ -48,11 +48,11 @@ namespace Vautour
             sabot.RemoveAt(rang);
         }
 
-        public void playIAs()
+        public void playIAs(Carte P1)
         {
             for (int i = 0; i < players.Count() - 1; i++)
             {
-                ((IA)players[i]).play(currentCarte);
+                ((IA)players[i]).play(P1,currentCarte);
                 System.Threading.Thread.Sleep(10);
             }
             plateau.displayCards(players.Count - 1);

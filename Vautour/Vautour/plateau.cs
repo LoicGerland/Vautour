@@ -101,7 +101,7 @@ namespace Vautour
                 pb_P1.Image = sabotCartesJR.Images[CP1.getIndexImage() - 1];
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
-                game.playIAs();
+                game.playIAs(CP1);
                 turnWinner = game.checkTurn();
                 game.addScore(turnWinner);
 

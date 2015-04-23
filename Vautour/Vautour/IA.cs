@@ -48,6 +48,7 @@ namespace Vautour
                 if (c.getValue() == P1.getValue()+1)
                 {
                     this.removeCarte(c);
+                    this.lastCardPlayed = c;
                     return c;
                 }
             }
@@ -58,6 +59,7 @@ namespace Vautour
                     if (c.getValue() == P1.getValue())
                     {
                         this.removeCarte(c);
+                        this.lastCardPlayed = c;
                         return c;
                     }
                 }
