@@ -24,7 +24,7 @@ namespace Vautour
                 case 1 :
                     return playrandInt(abs(game.getCurrentCarte().getValue()));
                 case 2 :
-                    return playSmart(game.getCurrentCarte(), game.getCartPlayed());
+                    return playSmart(game.getCurrentCarte(), game.getCartPlayed(),game.getPlayers().Count);
                 case 3 :
                     return playChuck(game.getPlayers().Last().getLastCardPlayed(),game.getCurrentCarte());
                 default: return playrand();
@@ -120,7 +120,7 @@ namespace Vautour
             return C;
         }
 
-        public Carte playSmart(Carte currentCarte, int[] CartPlayed)
+        public Carte playSmart(Carte currentCarte, int[] cartPlayed, int nbJoueur)
         {
             switch (currentCarte.getValue())
             {
@@ -129,24 +129,24 @@ namespace Vautour
                 case -1:
                 case 1:
                 case 2:
-                    return playCardInRank(1, 4, CartPlayed);
+                    return playCardInRank(1, 4, cartPlayed, nbJoueur);
                 //On joue les cartes de 4 à 9
                 case -4:
                 case -3:
                 case 3:
                 case 4:
-                    return playCardInRank(4, 9, CartPlayed);
+                    return playCardInRank(4, 9, cartPlayed, nbJoueur);
                 //On joue les cartes de 9 à 13
                 case -5:
                 case 5:
                 case 6:
                 case 7:
-                    return playCardInRank(9, 13, CartPlayed);
+                    return playCardInRank(9, 13, cartPlayed, nbJoueur);
                 //On joue les cartes de 13 à 15
                 case 8:
                 case 9:
                 case 10:
-                    return playCardInRank(13, 15, CartPlayed);
+                    return playCardInRank(13, 15, cartPlayed, nbJoueur);
             }
             return null;
         }
@@ -165,7 +165,7 @@ namespace Vautour
             return null;
         }
 
-        public Carte playCardInRank(int min, int max, int[] CartPlayed)
+        public Carte playCardInRank(int min, int max, int[] CartPlayed, int nbJoueur)
         {
             //Verification des brnes sup et inf
             if (min > max) { int tmp = min; min = max; max = tmp; }
@@ -182,6 +182,13 @@ namespace Vautour
                 if (CartPlayed[i] > CartPlayed[c] ) { c = i ; }
             }
             Carte carteAJouer;
+            Random rand = new Random();
+            int r = rand.Next(100);
+            if (r < 10 && nbJoueur == 5) { c -= 2; }
+            else if (r < 30) { c -= 1; }
+            else if (r < 70) { }
+            else if (r < 90) { c += 1; }
+            else if (nbJoueur == 5) { c += 2; }
             do
             {
 
