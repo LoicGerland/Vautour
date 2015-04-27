@@ -15,20 +15,19 @@ namespace Vautour
             this.difficulty = d;
         }
 
-        public Carte play(Carte P1,Carte Pot)
+        public Carte play(Game game)
         {
             switch (this.difficulty)
             {
                 case 0 :
                     return playrand();
                 case 1 :
-                    return playrandInt(abs(Pot.getValue()));
+                    return playrandInt(abs(game.getCurrentCarte().getValue()));
                 case 2 :
-                    return playSmart(Pot.getValue());
+                    return playSmart(game.getCurrentCarte(), game.getCartPlayed());
                 case 3 :
-                    return playChuck(P1,Pot);
+                    return playChuck(game.getPlayers().Last().getLastCardPlayed(),game.getCurrentCarte());
                 default: return playrand();
-                    
             }
         }
 
@@ -121,33 +120,33 @@ namespace Vautour
             return C;
         }
 
-        public Carte playSmart(int valCarte)
+        public Carte playSmart(Carte currentCarte, int[] CartPlayed)
         {
-            switch (valCarte)
+            switch (currentCarte.getValue())
             {
                 //On joue les cartes de 1 à 4
                 case -2:
                 case -1:
                 case 1:
                 case 2:
-                    return playCardInRank(1, 4);
-                //On joue les cartes de 5 à 8
+                    return playCardInRank(1, 4, CartPlayed);
+                //On joue les cartes de 4 à 9
                 case -4:
                 case -3:
                 case 3:
                 case 4:
-                    return playCardInRank(4, 9);
-                //On joue les cartes de 8 à 12
+                    return playCardInRank(4, 9, CartPlayed);
+                //On joue les cartes de 9 à 13
                 case -5:
                 case 5:
                 case 6:
                 case 7:
-                    return playCardInRank(9, 13);
+                    return playCardInRank(9, 13, CartPlayed);
                 //On joue les cartes de 13 à 15
                 case 8:
                 case 9:
                 case 10:
-                    return playCardInRank(13, 15);
+                    return playCardInRank(13, 15, CartPlayed);
             }
             return null;
         }
@@ -166,26 +165,32 @@ namespace Vautour
             return null;
         }
 
-        public Carte playCardInRank(int min, int max)
+        public Carte playCardInRank(int min, int max, int[] CartPlayed)
         {
+            //Verification des brnes sup et inf
             if (min > max) { int tmp = min; min = max; max = tmp; }
+
+            //Verification d'au moin une carte dans l'intervalle
             while(!isInRank(min,max))
             {
                 if (max <14) { max++; }
-                if (min > 1) { min--; }
+                else if (min > 1) { min--; }
             }
-            if (isInRank(min, max))
+            int c = min;
+            for (int i = min+1; i <= max; i++)
             {
-                Random r = new Random();
-                Carte c = null;
-                do
-                {
-                    c = this.playCardByValue((int)r.Next(min, max+1));
-                }
-                while (c==null);
-                return c;
+                if (CartPlayed[i] > CartPlayed[c] ) { c = i ; }
             }
-            else return null;
+            Carte carteAJouer;
+            do
+            {
+
+                carteAJouer = this.playCardByValue(c);
+                if (c < max) { c++; }
+                else c = min;
+            }
+            while (carteAJouer == null);
+            return carteAJouer;
         }
 
         private bool isInRank(int min, int max)

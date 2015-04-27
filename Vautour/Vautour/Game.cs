@@ -15,13 +15,16 @@ namespace Vautour
 
         private plateau plateau; //Plateau de jeu
 
-        public Carte currentCarte; //Carte actuellement en jeu
+        private Carte currentCarte; //Carte actuellement en jeu
+
+        private int[] cartePlayed;
 
         public Game(List<Player> p,List<Carte> s,plateau plat)
         {
             this.players = p;
             this.sabot = s;
             this.plateau = plat;
+            this.cartePlayed = new int[16];
         }
 
         public List<Player> getPlayers()
@@ -48,11 +51,11 @@ namespace Vautour
             sabot.RemoveAt(rang);
         }
 
-        public void playIAs(Carte P1)
+        public void playIAs()
         {
             for (int i = 0; i < players.Count() - 1; i++)
             {
-                ((IA)players[i]).play(P1,currentCarte);
+                ((IA)players[i]).play(this);
                 System.Threading.Thread.Sleep(10);
             }
             plateau.displayCards(players.Count - 1);
@@ -67,6 +70,8 @@ namespace Vautour
 
             for (int i = 0; i < tmp.Count; i++)
             {
+
+                cartePlayed[tmp[i].getLastCardPlayed().getValue()]++;
                 _double = false;
                 for (int j = i + 1; j < tmp.Count; j++)
                 {
@@ -129,7 +134,6 @@ namespace Vautour
                         players[i].setScore(currentCarte.getValue());
                         plateau.displayTextLbWinner(players[i].getNom() + " prend la carte,\nil a maintenant " + players[i].getScore() + " points");
                         plateau.majDisplayScore();
-                        plateau.addTurnInHistoric(currentCarte, turnWinner);
                     }
                 }
                 if (sabot.Count == 0)
@@ -156,6 +160,16 @@ namespace Vautour
                 }
             }
             return winner;
+        }
+
+        public int[] getCartPlayed()
+        {
+            return this.cartePlayed;
+        }
+
+        public Carte getCurrentCarte()
+        {
+            return this.currentCarte;
         }
     }
 }

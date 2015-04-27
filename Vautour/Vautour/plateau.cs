@@ -99,7 +99,7 @@ namespace Vautour
                 pb_P1.Image = sabotCartesJR.Images[CP1.getIndexImage() - 1];
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
-                game.playIAs(CP1);
+                game.playIAs();
                 game.addScore(game.checkTurn());
 
                 //tirage de la nouvelle carte autorisé
@@ -131,7 +131,7 @@ namespace Vautour
             bt_jouer.Enabled = true;
             bt_jouer.Visible = true;
             pb_Pot.Enabled = false;
-            lb_winner.Text = "Vous jouez pour une carte " + game.currentCarte.getStringByType() + "\nde valeur " + game.currentCarte.getValue().ToString();
+            lb_winner.Text = "Vous jouez pour une carte " + game.getCurrentCarte().getStringByType() + "\nde valeur " + game.getCurrentCarte().getValue().ToString();
         }
 
         public void majDisplayScore()
@@ -215,11 +215,6 @@ namespace Vautour
         private void quitterToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        public void addTurnInHistoric(Carte C, Player P)
-        {
-            listbox_historique.Items.Add(P.getNom() + " : " + C.getValue().ToString()+ "; Score : "+P.getScore());
         }
     }
 }

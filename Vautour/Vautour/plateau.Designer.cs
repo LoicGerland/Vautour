@@ -62,8 +62,6 @@
             this.déroulementDuJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recommencerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listbox_historique = new System.Windows.Forms.ListBox();
-            this.label_historique = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA4)).BeginInit();
@@ -423,32 +421,13 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click_1);
             // 
-            // listbox_historique
-            // 
-            this.listbox_historique.FormattingEnabled = true;
-            this.listbox_historique.Location = new System.Drawing.Point(609, 421);
-            this.listbox_historique.Name = "listbox_historique";
-            this.listbox_historique.Size = new System.Drawing.Size(168, 199);
-            this.listbox_historique.TabIndex = 9;
-            // 
-            // label_historique
-            // 
-            this.label_historique.AutoSize = true;
-            this.label_historique.Location = new System.Drawing.Point(609, 402);
-            this.label_historique.Name = "label_historique";
-            this.label_historique.Size = new System.Drawing.Size(120, 13);
-            this.label_historique.TabIndex = 10;
-            this.label_historique.Text = "Historique des manches";
-            // 
             // plateau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(848, 649);
-            this.Controls.Add(this.label_historique);
-            this.Controls.Add(this.listbox_historique);
+            this.ClientSize = new System.Drawing.Size(848, 648);
             this.Controls.Add(this.lb_Score_P1);
             this.Controls.Add(this.lb_Score_IA3);
             this.Controls.Add(this.lb_Score_IA2);
@@ -524,8 +503,6 @@
         private System.Windows.Forms.ToolStripMenuItem déroulementDuJeuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recommencerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.ListBox listbox_historique;
-        private System.Windows.Forms.Label label_historique;
     }
 }
 
