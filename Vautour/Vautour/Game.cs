@@ -134,6 +134,7 @@ namespace Vautour
                         players[i].setScore(currentCarte.getValue());
                         plateau.displayTextLbWinner(players[i].getNom() + " prend la carte,\nil a maintenant " + players[i].getScore() + " points");
                         plateau.majDisplayScore();
+                        plateau.highLight(players.Count()-i);
                     }
                 }
                 if (sabot.Count == 0)
@@ -145,6 +146,7 @@ namespace Vautour
             }
             else
             {
+                plateau.highLight(6);
                 plateau.displayTextLbWinner("Aucun joueur ne prend cette carte,\nil y a surement égalité.");
             }
         }

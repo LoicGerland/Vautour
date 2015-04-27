@@ -102,6 +102,7 @@ namespace Vautour
                 game.playIAs();
                 game.addScore(game.checkTurn());
 
+
                 //tirage de la nouvelle carte autorisé
                 pb_Pot.Enabled = true;
             }
@@ -215,6 +216,56 @@ namespace Vautour
         private void quitterToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public void highLight(int numJoueur)
+        {
+            switch (numJoueur)
+            {
+                case 1:
+                    pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
+                    pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
+                    pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
+                    pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
+                    pb_P1.BorderStyle = BorderStyle.Fixed3D; lb_P1.BackColor = Color.Red;
+                    break;
+                case 2:
+                    pb_IA1.BorderStyle = BorderStyle.Fixed3D; lb_IA1.BackColor = Color.Red;
+                    pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
+                    pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
+                    pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
+                    pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
+                    break;
+                case 3:
+                    pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
+                    pb_IA2.BorderStyle = BorderStyle.Fixed3D; lb_IA2.BackColor = Color.Red;
+                    pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
+                    pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
+                    pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
+                    break;
+                case 4:
+                    pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
+                    pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
+                    pb_IA3.BorderStyle = BorderStyle.Fixed3D; lb_IA3.BackColor = Color.Red;
+                    pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
+                    pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
+                    break;
+                case 5:
+                    pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
+                    pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
+                    pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
+                    pb_IA4.BorderStyle = BorderStyle.Fixed3D; lb_IA4.BackColor = Color.Red;
+                    pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
+                    break;
+                default :
+                    pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
+                    pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
+                    pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
+                    pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
+                    pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
+                    break;
+
+            }
         }
     }
 }
