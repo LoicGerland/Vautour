@@ -75,21 +75,21 @@
             // 
             this.sabotCartesJB.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("sabotCartesJB.ImageStream")));
             this.sabotCartesJB.TransparentColor = System.Drawing.Color.Transparent;
-            this.sabotCartesJB.Images.SetKeyName(0, "Diapositive1.JPG");
-            this.sabotCartesJB.Images.SetKeyName(1, "Diapositive2.JPG");
-            this.sabotCartesJB.Images.SetKeyName(2, "Diapositive3.JPG");
-            this.sabotCartesJB.Images.SetKeyName(3, "Diapositive4.JPG");
-            this.sabotCartesJB.Images.SetKeyName(4, "Diapositive5.JPG");
-            this.sabotCartesJB.Images.SetKeyName(5, "Diapositive6.JPG");
-            this.sabotCartesJB.Images.SetKeyName(6, "Diapositive7.JPG");
-            this.sabotCartesJB.Images.SetKeyName(7, "Diapositive8.JPG");
-            this.sabotCartesJB.Images.SetKeyName(8, "Diapositive9.JPG");
-            this.sabotCartesJB.Images.SetKeyName(9, "Diapositive10.JPG");
-            this.sabotCartesJB.Images.SetKeyName(10, "Diapositive11.JPG");
-            this.sabotCartesJB.Images.SetKeyName(11, "Diapositive12.JPG");
-            this.sabotCartesJB.Images.SetKeyName(12, "Diapositive13.JPG");
-            this.sabotCartesJB.Images.SetKeyName(13, "Diapositive14.JPG");
-            this.sabotCartesJB.Images.SetKeyName(14, "Diapositive15.JPG");
+            this.sabotCartesJB.Images.SetKeyName(0, "Carte_1.jpg");
+            this.sabotCartesJB.Images.SetKeyName(1, "Carte_2.jpg");
+            this.sabotCartesJB.Images.SetKeyName(2, "Carte_3.jpg");
+            this.sabotCartesJB.Images.SetKeyName(3, "Carte_4.jpg");
+            this.sabotCartesJB.Images.SetKeyName(4, "Carte_5.jpg");
+            this.sabotCartesJB.Images.SetKeyName(5, "Carte_6.jpg");
+            this.sabotCartesJB.Images.SetKeyName(6, "Carte_7.jpg");
+            this.sabotCartesJB.Images.SetKeyName(7, "Carte_8.jpg");
+            this.sabotCartesJB.Images.SetKeyName(8, "Carte_9.jpg");
+            this.sabotCartesJB.Images.SetKeyName(9, "Carte_10.jpg");
+            this.sabotCartesJB.Images.SetKeyName(10, "Carte_11.jpg");
+            this.sabotCartesJB.Images.SetKeyName(11, "Carte_12.jpg");
+            this.sabotCartesJB.Images.SetKeyName(12, "Carte_13.jpg");
+            this.sabotCartesJB.Images.SetKeyName(13, "Carte_14.jpg");
+            this.sabotCartesJB.Images.SetKeyName(14, "Carte_15.jpg");
             // 
             // sabotDeCartesP
             // 
@@ -161,88 +161,88 @@
             // 
             this.sabotCartesJR.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("sabotCartesJR.ImageStream")));
             this.sabotCartesJR.TransparentColor = System.Drawing.Color.Transparent;
-            this.sabotCartesJR.Images.SetKeyName(0, "Diapositive1.JPG");
-            this.sabotCartesJR.Images.SetKeyName(1, "Diapositive2.JPG");
-            this.sabotCartesJR.Images.SetKeyName(2, "Diapositive3.JPG");
-            this.sabotCartesJR.Images.SetKeyName(3, "Diapositive4.JPG");
-            this.sabotCartesJR.Images.SetKeyName(4, "Diapositive5.JPG");
-            this.sabotCartesJR.Images.SetKeyName(5, "Diapositive6.JPG");
-            this.sabotCartesJR.Images.SetKeyName(6, "Diapositive7.JPG");
-            this.sabotCartesJR.Images.SetKeyName(7, "Diapositive8.JPG");
-            this.sabotCartesJR.Images.SetKeyName(8, "Diapositive9.JPG");
-            this.sabotCartesJR.Images.SetKeyName(9, "Diapositive10.JPG");
-            this.sabotCartesJR.Images.SetKeyName(10, "Diapositive11.JPG");
-            this.sabotCartesJR.Images.SetKeyName(11, "Diapositive12.JPG");
-            this.sabotCartesJR.Images.SetKeyName(12, "Diapositive13.JPG");
-            this.sabotCartesJR.Images.SetKeyName(13, "Diapositive14.JPG");
-            this.sabotCartesJR.Images.SetKeyName(14, "Diapositive15.JPG");
+            this.sabotCartesJR.Images.SetKeyName(0, "Carte_1.jpg");
+            this.sabotCartesJR.Images.SetKeyName(1, "Carte_2.jpg");
+            this.sabotCartesJR.Images.SetKeyName(2, "Carte_3.jpg");
+            this.sabotCartesJR.Images.SetKeyName(3, "Carte_4.jpg");
+            this.sabotCartesJR.Images.SetKeyName(4, "Carte_5.jpg");
+            this.sabotCartesJR.Images.SetKeyName(5, "Carte_6.jpg");
+            this.sabotCartesJR.Images.SetKeyName(6, "Carte_7.jpg");
+            this.sabotCartesJR.Images.SetKeyName(7, "Carte_8.jpg");
+            this.sabotCartesJR.Images.SetKeyName(8, "Carte_9.jpg");
+            this.sabotCartesJR.Images.SetKeyName(9, "Carte_10.jpg");
+            this.sabotCartesJR.Images.SetKeyName(10, "Carte_11.jpg");
+            this.sabotCartesJR.Images.SetKeyName(11, "Carte_12.jpg");
+            this.sabotCartesJR.Images.SetKeyName(12, "Carte_13.jpg");
+            this.sabotCartesJR.Images.SetKeyName(13, "Carte_14.jpg");
+            this.sabotCartesJR.Images.SetKeyName(14, "Carte_15.jpg");
             // 
             // sabotCartesJJ
             // 
             this.sabotCartesJJ.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("sabotCartesJJ.ImageStream")));
             this.sabotCartesJJ.TransparentColor = System.Drawing.Color.Transparent;
-            this.sabotCartesJJ.Images.SetKeyName(0, "Diapositive1.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(1, "Diapositive2.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(2, "Diapositive3.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(3, "Diapositive4.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(4, "Diapositive5.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(5, "Diapositive6.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(6, "Diapositive7.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(7, "Diapositive8.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(8, "Diapositive9.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(9, "Diapositive10.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(10, "Diapositive11.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(11, "Diapositive12.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(12, "Diapositive13.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(13, "Diapositive14.JPG");
-            this.sabotCartesJJ.Images.SetKeyName(14, "Diapositive15.JPG");
+            this.sabotCartesJJ.Images.SetKeyName(0, "Carte_1.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(1, "Carte_2.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(2, "Carte_3.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(3, "Carte_4.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(4, "Carte_5.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(5, "Carte_6.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(6, "Carte_7.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(7, "Carte_8.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(8, "Carte_9.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(9, "Carte_10.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(10, "Carte_11.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(11, "Carte_12.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(12, "Carte_13.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(13, "Carte_14.jpg");
+            this.sabotCartesJJ.Images.SetKeyName(14, "Carte_15.jpg");
             // 
             // sabotCartesJV
             // 
             this.sabotCartesJV.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("sabotCartesJV.ImageStream")));
             this.sabotCartesJV.TransparentColor = System.Drawing.Color.Transparent;
-            this.sabotCartesJV.Images.SetKeyName(0, "Diapositive1.JPG");
-            this.sabotCartesJV.Images.SetKeyName(1, "Diapositive2.JPG");
-            this.sabotCartesJV.Images.SetKeyName(2, "Diapositive3.JPG");
-            this.sabotCartesJV.Images.SetKeyName(3, "Diapositive4.JPG");
-            this.sabotCartesJV.Images.SetKeyName(4, "Diapositive5.JPG");
-            this.sabotCartesJV.Images.SetKeyName(5, "Diapositive6.JPG");
-            this.sabotCartesJV.Images.SetKeyName(6, "Diapositive7.JPG");
-            this.sabotCartesJV.Images.SetKeyName(7, "Diapositive8.JPG");
-            this.sabotCartesJV.Images.SetKeyName(8, "Diapositive9.JPG");
-            this.sabotCartesJV.Images.SetKeyName(9, "Diapositive10.JPG");
-            this.sabotCartesJV.Images.SetKeyName(10, "Diapositive11.JPG");
-            this.sabotCartesJV.Images.SetKeyName(11, "Diapositive12.JPG");
-            this.sabotCartesJV.Images.SetKeyName(12, "Diapositive13.JPG");
-            this.sabotCartesJV.Images.SetKeyName(13, "Diapositive14.JPG");
-            this.sabotCartesJV.Images.SetKeyName(14, "Diapositive15.JPG");
+            this.sabotCartesJV.Images.SetKeyName(0, "Carte_1.jpg");
+            this.sabotCartesJV.Images.SetKeyName(1, "Carte_2.jpg");
+            this.sabotCartesJV.Images.SetKeyName(2, "Carte_3.jpg");
+            this.sabotCartesJV.Images.SetKeyName(3, "Carte_4.jpg");
+            this.sabotCartesJV.Images.SetKeyName(4, "Carte_5.jpg");
+            this.sabotCartesJV.Images.SetKeyName(5, "Carte_6.jpg");
+            this.sabotCartesJV.Images.SetKeyName(6, "Carte_7.jpg");
+            this.sabotCartesJV.Images.SetKeyName(7, "Carte_8.jpg");
+            this.sabotCartesJV.Images.SetKeyName(8, "Carte_9.jpg");
+            this.sabotCartesJV.Images.SetKeyName(9, "Carte_10.jpg");
+            this.sabotCartesJV.Images.SetKeyName(10, "Carte_11.jpg");
+            this.sabotCartesJV.Images.SetKeyName(11, "Carte_12.jpg");
+            this.sabotCartesJV.Images.SetKeyName(12, "Carte_13.jpg");
+            this.sabotCartesJV.Images.SetKeyName(13, "Carte_14.jpg");
+            this.sabotCartesJV.Images.SetKeyName(14, "Carte_15.jpg");
             // 
             // sabotCartesJN
             // 
             this.sabotCartesJN.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("sabotCartesJN.ImageStream")));
             this.sabotCartesJN.TransparentColor = System.Drawing.Color.Transparent;
-            this.sabotCartesJN.Images.SetKeyName(0, "Diapositive1.JPG");
-            this.sabotCartesJN.Images.SetKeyName(1, "Diapositive2.JPG");
-            this.sabotCartesJN.Images.SetKeyName(2, "Diapositive3.JPG");
-            this.sabotCartesJN.Images.SetKeyName(3, "Diapositive4.JPG");
-            this.sabotCartesJN.Images.SetKeyName(4, "Diapositive5.JPG");
-            this.sabotCartesJN.Images.SetKeyName(5, "Diapositive6.JPG");
-            this.sabotCartesJN.Images.SetKeyName(6, "Diapositive7.JPG");
-            this.sabotCartesJN.Images.SetKeyName(7, "Diapositive8.JPG");
-            this.sabotCartesJN.Images.SetKeyName(8, "Diapositive9.JPG");
-            this.sabotCartesJN.Images.SetKeyName(9, "Diapositive10.JPG");
-            this.sabotCartesJN.Images.SetKeyName(10, "Diapositive11.JPG");
-            this.sabotCartesJN.Images.SetKeyName(11, "Diapositive12.JPG");
-            this.sabotCartesJN.Images.SetKeyName(12, "Diapositive13.JPG");
-            this.sabotCartesJN.Images.SetKeyName(13, "Diapositive14.JPG");
-            this.sabotCartesJN.Images.SetKeyName(14, "Diapositive15.JPG");
+            this.sabotCartesJN.Images.SetKeyName(0, "Carte_1.jpg");
+            this.sabotCartesJN.Images.SetKeyName(1, "Carte_2.jpg");
+            this.sabotCartesJN.Images.SetKeyName(2, "Carte_3.jpg");
+            this.sabotCartesJN.Images.SetKeyName(3, "Carte_4.jpg");
+            this.sabotCartesJN.Images.SetKeyName(4, "Carte_5.jpg");
+            this.sabotCartesJN.Images.SetKeyName(5, "Carte_6.jpg");
+            this.sabotCartesJN.Images.SetKeyName(6, "Carte_7.jpg");
+            this.sabotCartesJN.Images.SetKeyName(7, "Carte_8.jpg");
+            this.sabotCartesJN.Images.SetKeyName(8, "Carte_9.jpg");
+            this.sabotCartesJN.Images.SetKeyName(9, "Carte_10.jpg");
+            this.sabotCartesJN.Images.SetKeyName(10, "Carte_11.jpg");
+            this.sabotCartesJN.Images.SetKeyName(11, "Carte_12.jpg");
+            this.sabotCartesJN.Images.SetKeyName(12, "Carte_13.jpg");
+            this.sabotCartesJN.Images.SetKeyName(13, "Carte_14.jpg");
+            this.sabotCartesJN.Images.SetKeyName(14, "Carte_15.jpg");
             // 
             // lb_main
             // 
             this.lb_main.FormattingEnabled = true;
-            this.lb_main.Location = new System.Drawing.Point(275, 457);
+            this.lb_main.Location = new System.Drawing.Point(275, 418);
             this.lb_main.Name = "lb_main";
-            this.lb_main.Size = new System.Drawing.Size(52, 160);
+            this.lb_main.Size = new System.Drawing.Size(52, 199);
             this.lb_main.TabIndex = 1;
             // 
             // lbl_main
@@ -427,7 +427,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(848, 648);
+            this.ClientSize = new System.Drawing.Size(848, 649);
             this.Controls.Add(this.lb_Score_P1);
             this.Controls.Add(this.lb_Score_IA3);
             this.Controls.Add(this.lb_Score_IA2);

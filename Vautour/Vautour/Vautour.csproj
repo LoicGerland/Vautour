@@ -78,6 +78,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Image\Carte Joueur\Bleu\Thumbs.db" />
+    <None Include="Image\Carte Joueur\Jaune\Thumbs.db" />
+    <None Include="Image\Carte Joueur\Noir\Thumbs.db" />
+    <None Include="Image\Carte Joueur\Rouge\Thumbs.db" />
+    <None Include="Image\Carte Joueur\Vert\Thumbs.db" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +97,81 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\Carte Joueur\Bleu\Carte_1.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_10.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_11.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_12.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_13.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_14.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_15.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_2.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_3.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_4.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_5.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_6.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_7.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_8.jpg" />
+    <Content Include="Image\Carte Joueur\Bleu\Carte_9.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_1.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_10.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_11.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_12.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_13.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_14.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_15.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_2.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_3.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_4.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_5.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_6.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_7.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_8.jpg" />
+    <Content Include="Image\Carte Joueur\Jaune\Carte_9.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_1.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_10.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_11.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_12.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_13.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_14.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_15.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_2.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_3.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_4.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_5.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_6.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_7.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_8.jpg" />
+    <Content Include="Image\Carte Joueur\Noir\Carte_9.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_1.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_10.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_11.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_12.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_13.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_14.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_15.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_2.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_3.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_4.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_5.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_6.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_7.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_8.jpg" />
+    <Content Include="Image\Carte Joueur\Rouge\Carte_9.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_1.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_10.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_11.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_12.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_13.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_14.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_15.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_2.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_3.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_4.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_5.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_6.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_7.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_8.jpg" />
+    <Content Include="Image\Carte Joueur\Vert\Carte_9.jpg" />
     <Content Include="Image\Diapositive1.JPG" />
     <Content Include="Image\Diapositive10.JPG" />
     <Content Include="Image\Diapositive11.JPG" />
