@@ -12,5 +12,12 @@ namespace Vautour
         {
 
         }
+
+        public void play(int index)
+        {
+            Carte CP1 = getCarte(index);
+            setLastCardPlayed(CP1);
+            removeCarte(index);
+        }
     }
 }

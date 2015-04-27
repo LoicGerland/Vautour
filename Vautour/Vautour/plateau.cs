@@ -22,6 +22,8 @@ namespace Vautour
         public plateau(List<Player> players)
         {
             InitializeComponent();
+
+            //Initialise les différents players (nombre, nom, difficulté)
             this.joueurs = players;
 
             //Remplissage du pot
@@ -34,18 +36,23 @@ namespace Vautour
             {
                 pot.Add(new Carte(i + 1, i + 5, "P", 1));
             }
-            //Création de la partie
+
+            //Création de la partie et partage de la variable joueurs entre le Plateau et Game
             game = new Game(joueurs, pot, this);
 
+            //Affichage/masquage des différents éléments
             bt_jouer.Enabled = false;
             bt_jouer.Visible = false;
             lb_winner.Text = "Cliquer sur le cadre pour\nretourner la carte";
+
             //Remplissage de la listBox
             foreach (Carte c in joueurs.Last().getCartes())
             {
                 lb_main.Items.Add(c.getValue());
             }
+
             //Activation ou désactivation des joueurs suivant le nombre
+            highLight(6);
             pb_IA1.Enabled = false; lb_IA1.Enabled = false; lb_IA1.Visible = false; lb_Score_IA1.Visible = false;
             pb_IA2.Enabled = false; lb_IA2.Enabled = false; lb_IA2.Visible = false; lb_Score_IA2.Visible = false;
             pb_IA3.Enabled = false; lb_IA3.Enabled = false; lb_IA3.Visible = false; lb_Score_IA3.Visible = false;
@@ -53,17 +60,17 @@ namespace Vautour
             lb_P1.Text = joueurs.Last().getNom();
             switch (joueurs.Count())
             {
-                case 2:
+                case 2: //Permet l'affichage de 2 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[0].getNom(); lb_Score_IA1.Visible = true;
                     break;
-                case 3:
+                case 3: //Permet l'affichage de 3 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[1].getNom(); lb_Score_IA1.Visible = true;
                     pb_IA2.Enabled = true; lb_IA2.Enabled = true;
                     lb_IA2.Visible = true; lb_IA2.Text = joueurs[0].getNom(); lb_Score_IA1.Visible = true;
                     break;
-                case 4:
+                case 4: //Permet l'affichage de 4 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[2].getNom(); lb_Score_IA1.Visible = true;
                     pb_IA2.Enabled = true; lb_IA2.Enabled = true;
@@ -71,7 +78,7 @@ namespace Vautour
                     pb_IA3.Enabled = true; lb_IA3.Enabled = true;
                     lb_IA3.Visible = true; lb_IA3.Text = joueurs[0].getNom(); lb_Score_IA3.Visible = true;
                     break;
-                case 5:
+                case 5: //Permet l'affichage de 5 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[3].getNom(); lb_Score_IA1.Visible = true;
                     pb_IA2.Enabled = true; lb_IA2.Enabled = true;
@@ -91,28 +98,22 @@ namespace Vautour
                 bt_jouer.Enabled = false;
                 bt_jouer.Visible = false;
                 lbl_main.Text = "Main";
-                //Suppression de la carte de la main
+
+                //Selection de la carte de P1
                 int index = lb_main.SelectedIndex;
-                Carte CP1 = joueurs.Last().getCarte(index);
-                joueurs.Last().setLastCardPlayed(CP1);
-                joueurs.Last().removeCarte(index);
-                pb_P1.Image = sabotCartesJR.Images[CP1.getIndexImage() - 1];
+
+                //Joue le tour
+                game.playTurn(index);
+
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
-                game.playIAs();
-                game.addScore(game.checkTurn());
-
 
                 //tirage de la nouvelle carte autorisé
                 pb_Pot.Enabled = true;
             }
-            else if(lb_main.SelectedIndex <0)
+            else if(lb_main.SelectedIndex <0)   //Si un imbécile oubliait de choisir une carte ... :/
             {
                 lbl_main.Text = "Choisi une carte gros malin !";
-            }
-            else if (joueurs.Count<=1)
-            {
-                System.Windows.Forms.MessageBox.Show("Erreur : Il reste " + joueurs.Count +" joueur actuellement dans la partie");
             }
         }
 
@@ -128,10 +129,16 @@ namespace Vautour
 
         private void pb_Pot_Click(object sender, EventArgs e)
         {
-            game.playTurn();
+            game.playCarte();   //Joue une carte du pot au hasard
+
+            //Permet au joueur de choisir et valider sa carte
             bt_jouer.Enabled = true;
-            bt_jouer.Visible = true;
+            bt_jouer.Visible = true; 
+
+            //Empeche de changer la carte du pot
             pb_Pot.Enabled = false;
+
+            //Affichage en texte de la carte du pot
             lb_winner.Text = "Vous jouez pour une carte " + game.getCurrentCarte().getStringByType() + "\nde valeur " + game.getCurrentCarte().getValue().ToString();
         }
 
@@ -165,25 +172,27 @@ namespace Vautour
         {
             switch (nbJoueurs)
             {
-                case 1:
+                case 2:
                     pb_IA1.Image = sabotCartesJB.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
-                case 2:
+                case 3:
                     pb_IA1.Image = sabotCartesJB.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
                     pb_IA2.Image = sabotCartesJV.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
-                case 3:
+                case 4:
                     pb_IA1.Image = sabotCartesJB.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
                     pb_IA2.Image = sabotCartesJV.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
                     pb_IA3.Image = sabotCartesJN.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
-                case 4:
+                case 5:
                     pb_IA1.Image = sabotCartesJB.Images[joueurs[3].getLastCardPlayed().getIndexImage() - 1];
                     pb_IA2.Image = sabotCartesJV.Images[joueurs[2].getLastCardPlayed().getIndexImage() - 1];
                     pb_IA3.Image = sabotCartesJN.Images[joueurs[1].getLastCardPlayed().getIndexImage() - 1];
                     pb_IA4.Image = sabotCartesJJ.Images[joueurs[0].getLastCardPlayed().getIndexImage() - 1];
                     break;
             }
+            pb_P1.Image = sabotCartesJR.Images[joueurs.Last().getLastCardPlayed().getIndexImage() - 1];
+
         }
 
         public void displayTextLbWinner(String s)
@@ -227,10 +236,10 @@ namespace Vautour
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
-                    pb_P1.BorderStyle = BorderStyle.Fixed3D; lb_P1.BackColor = Color.Red;
+                    pb_P1.BorderStyle = BorderStyle.Fixed3D; lb_P1.BackColor = Color.Cyan;
                     break;
                 case 2:
-                    pb_IA1.BorderStyle = BorderStyle.Fixed3D; lb_IA1.BackColor = Color.Red;
+                    pb_IA1.BorderStyle = BorderStyle.Fixed3D; lb_IA1.BackColor = Color.Cyan;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
@@ -238,7 +247,7 @@ namespace Vautour
                     break;
                 case 3:
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
-                    pb_IA2.BorderStyle = BorderStyle.Fixed3D; lb_IA2.BackColor = Color.Red;
+                    pb_IA2.BorderStyle = BorderStyle.Fixed3D; lb_IA2.BackColor = Color.Cyan;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
                     pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
@@ -246,7 +255,7 @@ namespace Vautour
                 case 4:
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
-                    pb_IA3.BorderStyle = BorderStyle.Fixed3D; lb_IA3.BackColor = Color.Red;
+                    pb_IA3.BorderStyle = BorderStyle.Fixed3D; lb_IA3.BackColor = Color.Cyan;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
                     pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
                     break;
@@ -254,7 +263,7 @@ namespace Vautour
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
-                    pb_IA4.BorderStyle = BorderStyle.Fixed3D; lb_IA4.BackColor = Color.Red;
+                    pb_IA4.BorderStyle = BorderStyle.Fixed3D; lb_IA4.BackColor = Color.Cyan;
                     pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
                     break;
                 default :

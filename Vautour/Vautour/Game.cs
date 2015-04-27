@@ -42,7 +42,7 @@ namespace Vautour
             return this.currentCarte;
         }
 
-        public void playTurn()
+        public void playCarte()
         {
             Random r = new Random();
             int rang = r.Next(sabot.Count);
@@ -58,7 +58,6 @@ namespace Vautour
                 ((IA)players[i]).play(this);
                 System.Threading.Thread.Sleep(10);
             }
-            plateau.displayCards(players.Count - 1);
         }
 
         public Player checkTurn()
@@ -159,6 +158,7 @@ namespace Vautour
                 if (players[i].getScore() > winner.getScore())
                 {
                     winner = players[i];
+                    plateau.highLight(players.Count() - i);
                 }
             }
             return winner;
@@ -173,5 +173,17 @@ namespace Vautour
         {
             return this.currentCarte;
         }
+
+        public void playTurn(int indexP1)
+        {
+            ((Human)players.Last()).play(indexP1); // Joue la carte de P1
+            playIAs();  //Fait jouer les differents IA
+            plateau.displayCards(players.Count);    //Affiche les cartes des joueurs
+            //display P1's Card
+            addScore(checkTurn());
+
+        }
     }
+
+
 }
