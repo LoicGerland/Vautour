@@ -15,9 +15,9 @@ namespace Vautour
 
         public void play(int index)
         {
-            Carte CP1 = getCarte(index);
-            setLastCardPlayed(CP1);
-            removeCarte(index);
+            Carte CP1 = getCarte(index); //Selectionne la carte a l'index
+            setLastCardPlayed(CP1);      //Designe cette carte comme derniere carte jouée
+            removeCarte(index);          //Retire la carte jouer de la main du joueur
         }
     }
 }

@@ -23,54 +23,61 @@ namespace Vautour
             this.score = s;
         }
 
-        public String getNom()
+        public String getNom()      //Renvoie le nom d'un joueurs
         {
             return this.nom;
         }
 
-        public List<Carte> getCartes()
+        public List<Carte> getCartes()  //Renvoie la liste des cartes restante d'un joueur
         {
             return this.main;
         }
 
-        public Carte getCarte(int index)
+        public Carte getCarte(int index)    //retourne la carte a la position de l'index dans la liste de carte
         {
             return this.main[index];
         }
 
-        public Carte getLastCardPlayed()
+        public Carte getLastCardPlayed()    //Renvoie la derniere carte jouer par le joueur
         {
             return lastCardPlayed;
         }
 
-        public void setLastCardPlayed(Carte carte)
+        public void setLastCardPlayed(Carte carte)  //Initialise la carte C comme derniere carte jouer par le joueur
         {
             this.lastCardPlayed = carte;
         }
 
-        public int getScore()
+        public int getScore()   //Renvoie le score du joueur
         {
             return this.score;
         }
 
-        public void setScore(int s)
+        public void setScore(int s) //Ajouter s au score du joueur
         {
             this.score += s; 
         }
 
-        public void resetScore()
+        public void resetScore()    //Reset le score du joueur
         {
             this.score = 0;
         }
 
-        public void removeCarte(int index)
+        public void removeCarte(int index)  //Supprime la carte a la position Index de la liste des cartes
         {
             this.main.RemoveAt(index);
         }
 
-        public void removeCarte(Carte C)
+        public void removeCarte(Carte C)    //Supprime la carte C de la liste des cartes
         {
             this.main.Remove(C);
+        }
+
+        public Carte playCard(Carte C)
+        {
+            setLastCardPlayed(C);      //Designe cette carte comme derniere carte jouée
+            removeCarte(C);          //Retire la carte jouer de la main du joueur
+            return C;               //Retourne la carte jouée
         }
     }
 }

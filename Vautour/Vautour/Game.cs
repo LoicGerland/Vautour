@@ -17,7 +17,7 @@ namespace Vautour
 
         private Carte currentCarte; //Carte actuellement en jeu
 
-        private int[] cartePlayed;
+        private int[] cartePlayed;  //Tableau contenant le nombre de carte jouer de chaque valeur
 
         public Game(List<Player> p,List<Carte> s,plateau plat)
         {
@@ -27,22 +27,22 @@ namespace Vautour
             this.cartePlayed = new int[16];
         }
 
-        public List<Player> getPlayers()
+        public List<Player> getPlayers()    //Renvoie la liste de players
         {
             return this.players;
         }
 
-        public List<Carte> getCartes()
+        public List<Carte> getCartes()  //Renvoie la liste de carte dans le pot
         {
             return this.sabot;
         }
 
-        public Carte getCurrentCartes()
+        public Carte getCurrentCartes() //Renvoie la carte du pot
         {
             return this.currentCarte;
         }
 
-        public void playCarte()
+        public void playCarte() //Joue une carte du pot de maniere aléatoire
         {
             Random r = new Random();
             int rang = r.Next(sabot.Count);
@@ -51,7 +51,7 @@ namespace Vautour
             sabot.RemoveAt(rang);
         }
 
-        public void playIAs()
+        public void playIAs() //Fait jouer les IAs chacuns à leur tour
         {
             for (int i = 0; i < players.Count() - 1; i++)
             {
@@ -60,7 +60,7 @@ namespace Vautour
             }
         }
 
-        public Player checkTurn()
+        public Player checkTurn()   //Return le joueur remportant la main ou null si égalité
         {
             List<Player> p = new List<Player>();
             List<Player> tmp = new List<Player>(this.players);
@@ -89,12 +89,12 @@ namespace Vautour
                 }
                 else
                 {
-                    p.Add(tmp[i]);
+                    p.Add(tmp[i]);  //Creer une liste des joueurs ayant joué une carte unique
                 }
             }
             if (p.Count != 0)
             {
-                if (currentCarte.getType() == 1)
+                if (currentCarte.getType() == 1)    //Cherche la carte la plus élevé pour choisir le gagnant de la carte souris
                 {
                     winner = p[0];
                     for (int i = 1; i < p.Count; i++)
@@ -104,9 +104,9 @@ namespace Vautour
                             winner = p[i];
                         }
                     }
-                    return winner;
+                    return winner;  //retourne le gagne de la carte souris
                 }
-                else
+                else //Cherche la carte la plus faible pour choisir le gagnant de la carte vautour
                 {
                     winner = p[0];
                     for (int i = 1; i < p.Count; i++)
@@ -116,60 +116,60 @@ namespace Vautour
                             winner = p[i];
                         }
                     }
-                    return winner;
+                    return winner;  //retourne le gagnant de la carte vautour
                 }
             }
-            else return null;
+            else return null;   //retourne null en cas d'égalité
         }
 
-        public void addScore(Player turnWinner)
+        public void addScore(Player turnWinner) //Ajoute le score au gagnant du tour
         {
             if (turnWinner != null)
             {
                 for (int i = 0; i < players.Count(); i++)
                 {
-                    if (turnWinner.Equals(players[i]))
+                    if (turnWinner.Equals(players[i])) //retrouve le gagnant dans la liste de joueur
                     {
-                        players[i].setScore(currentCarte.getValue());
-                        plateau.displayTextLbWinner(players[i].getNom() + " prend la carte,\nil a maintenant " + players[i].getScore() + " points");
-                        plateau.majDisplayScore();
-                        plateau.highLight(players.Count()-i);
+                        players[i].setScore(currentCarte.getValue());   //Ajoute la valeur de la carte remporté a son score
+                        plateau.displayTextLbWinner(players[i].getNom() + " prend la carte,\nil a maintenant " + players[i].getScore() + " points"); //Affiche en texte le gagnant et son nouveau score
+                        plateau.majDisplayScore();  //MaJ des scores des joueurs
+                        plateau.highLightPlayer(players.Count()-i); //Met en avant le gagnant de la main
                     }
-                }
-                if (sabot.Count == 0)
-                {
-                    Player playWinner = getWinner();
-                    plateau.displayMessage("La partie est fini, le joueur " + playWinner.getNom() + " remporte la partie avec " + playWinner.getScore().ToString() + " points. Bravo à lui");
-                    Application.Restart();
                 }
             }
             else
             {
-                plateau.highLight(6);
+                plateau.highLightPlayer(6);
                 plateau.displayTextLbWinner("Aucun joueur ne prend cette carte,\nil y a surement égalité.");
+            }
+            if (sabot.Count == 0)   //Signifie que la partie est fini
+            {
+                Player playWinner = getWinner();    //Trouve le gagnant de la partie
+                plateau.displayMessage("La partie est fini, le joueur " + playWinner.getNom() + " remporte la partie avec " + playWinner.getScore().ToString() + " points. Bravo à lui"); //Affiche dans un pop-up la fin de la partie et son vainqueur
+                Application.Restart();  //Relance le menu une fois la partie fini
             }
         }
 
-        private Player getWinner()
+        private Player getWinner()  //Renvoie le joueur avec le score le plus élevé
         {
             Player winner = players[0];
-            for (int i = 0; i < players.Count; i++)
+            for (int i = 1; i < players.Count; i++)
             {
                 if (players[i].getScore() > winner.getScore())
                 {
                     winner = players[i];
-                    plateau.highLight(players.Count() - i);
+                    plateau.highLightPlayer(players.Count() - i); //Met en avant le vainqueur de la partie
                 }
             }
             return winner;
         }
 
-        public int[] getCartPlayed()
+        public int[] getCartPlayed()    //Renvoie le tableau de carte joué
         {
             return this.cartePlayed;
         }
 
-        public Carte getCurrentCarte()
+        public Carte getCurrentCarte()  //Renvoie la carte sur le pot
         {
             return this.currentCarte;
         }
@@ -179,8 +179,7 @@ namespace Vautour
             ((Human)players.Last()).play(indexP1); // Joue la carte de P1
             playIAs();  //Fait jouer les differents IA
             plateau.displayCards(players.Count);    //Affiche les cartes des joueurs
-            //display P1's Card
-            addScore(checkTurn());
+            addScore(checkTurn());  //Cherche le vainqueur de la main et affiche les nouveaux scores
 
         }
     }

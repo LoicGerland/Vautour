@@ -52,7 +52,7 @@ namespace Vautour
             }
 
             //Activation ou désactivation des joueurs suivant le nombre
-            highLight(6);
+            highLightPlayer(6);
             pb_IA1.Enabled = false; lb_IA1.Enabled = false; lb_IA1.Visible = false; lb_Score_IA1.Visible = false;
             pb_IA2.Enabled = false; lb_IA2.Enabled = false; lb_IA2.Visible = false; lb_Score_IA2.Visible = false;
             pb_IA3.Enabled = false; lb_IA3.Enabled = false; lb_IA3.Visible = false; lb_Score_IA3.Visible = false;
@@ -90,7 +90,7 @@ namespace Vautour
                     break;
             }
         }
-        private void bt_jouer_Click(object sender, EventArgs e)
+        private void bt_jouer_Click(object sender, EventArgs e) //Evenement declenché par le bouton jouer
         {
             if (lb_main.SelectedIndex >= 0 && joueurs.Count!=0)
             {
@@ -108,7 +108,7 @@ namespace Vautour
                 //Suppression de la carte de la listBox et regénération de celle-ci
                 majLB();
 
-                //tirage de la nouvelle carte autorisé
+                //tirage de la nouvelle carte du pot autorisé
                 pb_Pot.Enabled = true;
             }
             else if(lb_main.SelectedIndex <0)   //Si un imbécile oubliait de choisir une carte ... :/
@@ -127,7 +127,7 @@ namespace Vautour
             }
         }
 
-        private void pb_Pot_Click(object sender, EventArgs e)
+        private void pb_Pot_Click(object sender, EventArgs e)   //Evenement declenché lors du tirage d'une carte du pot
         {
             game.playCarte();   //Joue une carte du pot au hasard
 
@@ -142,7 +142,7 @@ namespace Vautour
             lb_winner.Text = "Vous jouez pour une carte " + game.getCurrentCarte().getStringByType() + "\nde valeur " + game.getCurrentCarte().getValue().ToString();
         }
 
-        public void majDisplayScore()
+        public void majDisplayScore()   //Met a jour les label de score de chaque joueur
         {
             switch (joueurs.Count() - 1)
             {
@@ -168,7 +168,7 @@ namespace Vautour
             lb_Score_P1.Text = joueurs.Last().getScore().ToString();
         }
 
-        public void displayCards(int nbJoueurs)
+        public void displayCards(int nbJoueurs) //Affiche les cartes choisis de chaque joueur
         {
             switch (nbJoueurs)
             {
@@ -195,78 +195,84 @@ namespace Vautour
 
         }
 
-        public void displayTextLbWinner(String s)
+        public void displayTextLbWinner(String s)   //Message indiquant le gagnant de la main
         {
             lb_winner.Text = s;
         }
 
-        public void displayMessage(String s)
+        public void displayMessage(String s)    //Permet l'affichage d'un message dans un pop-up
         {
             System.Windows.Forms.MessageBox.Show(s);
         }
 
-        private void déroulementDuJeuToolStripMenuItem_Click(object sender, EventArgs e)
+        public void displayMessage(String title, String texte)    //Permet l'affichage d'un message dans un pop-up avec un titre
         {
-            System.Windows.Forms.MessageBox.Show("1_Cliquer sur le cadre au centre pour retourner une carte du pot\n2_Choisir dans la liste déroulante la valeur de la carte à jouer\n3_Cliquer sur jouer pour poser votre carte\n4_Goto 1_","Déroulement da la partie");
-        }
-
-        private void regleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.MessageBox.Show("Règle du jeu\n\nLe but du jeu est de totaliser le maximum de points en remportant les cartes 'souris' (positive) et en évitant de ramasser les cartes 'vautours' (négative).\n\nLe jeu contient :\n\tdes cartes numérotées de 1 à 15 dans 5 couleurs différentes.\n\tdes cartes 'souris' numérotées de 1 à 10.\n\tdes cartes 'vautours' numérotées de -1 à -5.\n\nDéroulement\n\nChaque joueur prend toutes les cartes d'une couleur. Les cartes 'souris' et 'vautours' sont mélangées et forment un talon caché. Une carte du talon est retournée. Les joueurs choisissent en secret une carte de leur jeu et la posent face cachée sur la table. Toutes les cartes sont retournées en même temps. Deux cas se présentent :\n\tsi la carte retournée est une carte 'souris', le joueur qui a posé la carte la plus forte remporte la 'souris'.\n\tsi la carte retournée est une carte 'vautour', le joueur qui a posé la carte la plus faible remporte le 'vautour'.\n\nSi 2 joueurs jouent une carte de même valeur, ces cartes s'annulent.\n\nSi la carte retournée est une 'souris' et que les 2 cartes qui s'annulent sont les plus fortes, c'est le joueur qui a joué la carte la plus forte après les cartes annulées qui remporte la 'souris'. Si la carte retournée est un 'vautour' et que les 2 cartes qui s'annulent sont les plus faibles, c'est le joueur qui a joué la carte la plus faible après les cartes annulées qui remporte le 'vautour'.\n\nLes cartes des joueurs sont ensuite défaussées ; on retourne une nouvelle carte du talon et on recommence.\n\nFin de partie\n\nLa partie s'arrête quand il n'y a plus de carte dans le talon et que les joueurs ont posé toutes leurs cartes. Chaque joueur fait le compte des points des cartes positives et négatives qu'il a ramassées au cours du jeu. Le vainqueur est celui qui totalise le plus grand score.", "Règles dans le Game");
-
+            System.Windows.Forms.MessageBox.Show(title,texte);
         }
 
 
-        private void recommencerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void déroulementDuJeuToolStripMenuItem_Click(object sender, EventArgs e)    //Aide au déroulement de la partie
+        {
+            displayMessage("1_Cliquer sur le cadre au centre pour retourner une carte du pot\n2_Choisir dans la liste déroulante la valeur de la carte à jouer\n3_Cliquer sur jouer pour poser votre carte\n4_Goto 1_","Déroulement da la partie");
+        }
+
+        private void regleToolStripMenuItem_Click(object sender, EventArgs e)   //Aide au règle du jeu
+        {
+            displayMessage("Règle du jeu\n\nLe but du jeu est de totaliser le maximum de points en remportant les cartes 'souris' (positive) et en évitant de ramasser les cartes 'vautours' (négative).\n\nLe jeu contient :\n\tdes cartes numérotées de 1 à 15 dans 5 couleurs différentes.\n\tdes cartes 'souris' numérotées de 1 à 10.\n\tdes cartes 'vautours' numérotées de -1 à -5.\n\nDéroulement\n\nChaque joueur prend toutes les cartes d'une couleur. Les cartes 'souris' et 'vautours' sont mélangées et forment un talon caché. Une carte du talon est retournée. Les joueurs choisissent en secret une carte de leur jeu et la posent face cachée sur la table. Toutes les cartes sont retournées en même temps. Deux cas se présentent :\n\tsi la carte retournée est une carte 'souris', le joueur qui a posé la carte la plus forte remporte la 'souris'.\n\tsi la carte retournée est une carte 'vautour', le joueur qui a posé la carte la plus faible remporte le 'vautour'.\n\nSi 2 joueurs jouent une carte de même valeur, ces cartes s'annulent.\n\nSi la carte retournée est une 'souris' et que les 2 cartes qui s'annulent sont les plus fortes, c'est le joueur qui a joué la carte la plus forte après les cartes annulées qui remporte la 'souris'. Si la carte retournée est un 'vautour' et que les 2 cartes qui s'annulent sont les plus faibles, c'est le joueur qui a joué la carte la plus faible après les cartes annulées qui remporte le 'vautour'.\n\nLes cartes des joueurs sont ensuite défaussées ; on retourne une nouvelle carte du talon et on recommence.\n\nFin de partie\n\nLa partie s'arrête quand il n'y a plus de carte dans le talon et que les joueurs ont posé toutes leurs cartes. Chaque joueur fait le compte des points des cartes positives et négatives qu'il a ramassées au cours du jeu. Le vainqueur est celui qui totalise le plus grand score.", "Règles dans le Game");
+
+        }
+
+
+        private void recommencerToolStripMenuItem_Click(object sender, EventArgs e) //Relance l'application pour recommencer une partie
         {
             Application.Restart();
         }
 
-        private void quitterToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void quitterToolStripMenuItem_Click_1(object sender, EventArgs e)   //Quitte l'apllication
         {
             Application.Exit();
         }
 
-        public void highLight(int numJoueur)
-        {
+        public void highLightPlayer(int numJoueur)    //Ajoute une bordure a l'image d'un joueur et met un fond cyan au label de son nom
+        {                                             //Permet de faire ressortir visuellement un joueur choisi (utilisé pour le gagnant d'une main)
             switch (numJoueur)
             {
-                case 1:
+                case 1:     //HighLight le joueur P1
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
                     pb_P1.BorderStyle = BorderStyle.Fixed3D; lb_P1.BackColor = Color.Cyan;
                     break;
-                case 2:
+                case 2:     //HighLight le joueur IA1
                     pb_IA1.BorderStyle = BorderStyle.Fixed3D; lb_IA1.BackColor = Color.Cyan;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
                     pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
                     break;
-                case 3:
+                case 3:     //HighLight le joueur IA2
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
                     pb_IA2.BorderStyle = BorderStyle.Fixed3D; lb_IA2.BackColor = Color.Cyan;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
                     pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
                     break;
-                case 4:
+                case 4:     //HighLight le joueur IA3
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.Fixed3D; lb_IA3.BackColor = Color.Cyan;
                     pb_IA4.BorderStyle = BorderStyle.None; lb_IA4.BackColor = Color.Transparent;
                     pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
                     break;
-                case 5:
+                case 5:     //HighLight le joueur IA4
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
                     pb_IA4.BorderStyle = BorderStyle.Fixed3D; lb_IA4.BackColor = Color.Cyan;
                     pb_P1.BorderStyle = BorderStyle.None; lb_P1.BackColor = Color.Transparent;
                     break;
-                default :
+                default :   //Reset des bordures et des fonds de tous les joueurs
                     pb_IA1.BorderStyle = BorderStyle.None; lb_IA1.BackColor = Color.Transparent;
                     pb_IA2.BorderStyle = BorderStyle.None; lb_IA2.BackColor = Color.Transparent;
                     pb_IA3.BorderStyle = BorderStyle.None; lb_IA3.BackColor = Color.Transparent;
