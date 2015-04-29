@@ -23,59 +23,104 @@ namespace Vautour
             this.score = s;
         }
 
-        public String getNom()      //Renvoie le nom d'un joueurs
+        /// <summary>
+        /// Retourne le nom d'un joueur
+        /// </summary>
+        /// <returns></returns>
+        public String getNom()
         {
             return this.nom;
         }
 
-        public List<Carte> getCartes()  //Renvoie la liste des cartes restante d'un joueur
+        /// <summary>
+        /// Renvoie la liste des cartes d'un joueur
+        /// </summary>
+        /// <returns></returns>
+        public List<Carte> getCartes()
         {
             return this.main;
         }
 
-        public Carte getCarte(int index)    //retourne la carte a la position de l'index dans la liste de carte
+        /// <summary>
+        /// Retourne la carte a la position de l'index dans la liste de carte
+        /// </summary>
+        /// <param name="index"> Index de la carte </param>
+        /// <returns></returns>
+        public Carte getCarte(int index)
         {
             return this.main[index];
         }
 
-        public Carte getLastCardPlayed()    //Renvoie la derniere carte jouer par le joueur
+        /// <summary>
+        /// Renvoie la derniere carte jouer par le joueur
+        /// </summary>
+        /// <returns></returns>
+        public Carte getLastCardPlayed()    
         {
             return lastCardPlayed;
         }
 
-        public void setLastCardPlayed(Carte carte)  //Initialise la carte C comme derniere carte jouer par le joueur
+        /// <summary>
+        /// Initialise la carte C comme derniere carte jouer par le joueur
+        /// </summary>
+        /// <param name="carte"> Dernière carte jouée </param>
+        public void setLastCardPlayed(Carte carte)
         {
             this.lastCardPlayed = carte;
         }
 
-        public int getScore()   //Renvoie le score du joueur
+        /// <summary>
+        /// Renvoie le score du joueur
+        /// </summary>
+        /// <returns></returns>
+        public int getScore()
         {
             return this.score;
         }
 
-        public void setScore(int s) //Ajouter s au score du joueur
+        /// <summary>
+        /// Modifie le score du joueur
+        /// </summary>
+        /// <param name="s"> Valeur du score à ajouter </param>
+        public void setScore(int s)
         {
             this.score += s; 
         }
 
-        public void resetScore()    //Reset le score du joueur
+        /// <summary>
+        /// Reset le score du joueur
+        /// </summary>
+        public void resetScore()
         {
             this.score = 0;
         }
 
-        public void removeCarte(int index)  //Supprime la carte a la position Index de la liste des cartes
+        /// <summary>
+        /// Supprime la carte à la position Index de la liste des cartes
+        /// </summary>
+        /// <param name="index"></param>
+        public void removeCarte(int index)
         {
             this.main.RemoveAt(index);
         }
 
-        public void removeCarte(Carte C)    //Supprime la carte C de la liste des cartes
+        /// <summary>
+        /// Supprime la carte C de la liste des cartes
+        /// </summary>
+        /// <param name="C"> Carte à supprimer </param>
+        public void removeCarte(Carte C)
         {
             this.main.Remove(C);
         }
 
+        /// <summary>
+        /// Joue la carte C
+        /// </summary>
+        /// <param name="C"> Carte à jouer </param>
+        /// <returns></returns>
         public Carte playCard(Carte C)
         {
-            setLastCardPlayed(C);      //Designe cette carte comme derniere carte jouée
+            setLastCardPlayed(C);     //Designe cette carte comme derniere carte jouée
             removeCarte(C);          //Retire la carte jouer de la main du joueur
             return C;               //Retourne la carte jouée
         }

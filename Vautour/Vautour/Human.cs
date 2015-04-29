@@ -13,6 +13,10 @@ namespace Vautour
 
         }
 
+        /// <summary>
+        /// Methode qui joue le coup du joueur
+        /// </summary>
+        /// <param name="index">L'index de le carte selectionnée dans la listBox</param>
         public void play(int index)
         {
             Carte CP1 = getCarte(index); //Selectionne la carte a l'index

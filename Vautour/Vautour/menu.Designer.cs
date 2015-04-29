@@ -48,11 +48,11 @@
             this.tb_IA2 = new System.Windows.Forms.TextBox();
             this.tb_IA3 = new System.Windows.Forms.TextBox();
             this.tb_IA4 = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menu_formMenu = new System.Windows.Forms.MenuStrip();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.règleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.menu_formMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -221,7 +221,7 @@
             this.tb_IA1.Name = "tb_IA1";
             this.tb_IA1.Size = new System.Drawing.Size(100, 20);
             this.tb_IA1.TabIndex = 4;
-            this.tb_IA1.Text = "BOT_Zizi";
+            this.tb_IA1.Text = "BOT1";
             // 
             // tb_IA2
             // 
@@ -233,7 +233,7 @@
             this.tb_IA2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tb_IA2.Size = new System.Drawing.Size(100, 20);
             this.tb_IA2.TabIndex = 6;
-            this.tb_IA2.Text = "BOT_Riri";
+            this.tb_IA2.Text = "BOT2";
             // 
             // tb_IA3
             // 
@@ -257,17 +257,17 @@
             this.tb_IA4.TabIndex = 10;
             this.tb_IA4.Text = "BOT_pipi";
             // 
-            // menuStrip1
+            // menu_formMenu
             // 
-            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_formMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menu_formMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aideToolStripMenuItem,
             this.quitterToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(317, 24);
-            this.menuStrip1.TabIndex = 12;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menu_formMenu.Location = new System.Drawing.Point(0, 0);
+            this.menu_formMenu.Name = "menu_formMenu";
+            this.menu_formMenu.Size = new System.Drawing.Size(317, 24);
+            this.menu_formMenu.TabIndex = 12;
+            this.menu_formMenu.Text = "menuStrip1";
             // 
             // aideToolStripMenuItem
             // 
@@ -318,8 +318,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cb_nbJ);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menu_formMenu);
+            this.MainMenuStrip = this.menu_formMenu;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(333, 380);
             this.MinimumSize = new System.Drawing.Size(333, 380);
@@ -327,8 +327,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stupid vautour";
             this.TransparencyKey = System.Drawing.Color.White;
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menu_formMenu.ResumeLayout(false);
+            this.menu_formMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,7 +356,7 @@
         private System.Windows.Forms.TextBox tb_IA2;
         private System.Windows.Forms.TextBox tb_IA3;
         private System.Windows.Forms.TextBox tb_IA4;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menu_formMenu;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem règleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carte.cs" />
+    <Compile Include="Common.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="plateau.cs">
       <SubType>Form</SubType>

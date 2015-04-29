@@ -27,22 +27,25 @@ namespace Vautour
             this.cartePlayed = new int[16];
         }
 
-        public List<Player> getPlayers()    //Renvoie la liste de players
+        public List<Player> getPlayers()
         {
             return this.players;
         }
 
-        public List<Carte> getCartes()  //Renvoie la liste de carte dans le pot
+        public List<Carte> getCartes()
         {
             return this.sabot;
         }
 
-        public Carte getCurrentCartes() //Renvoie la carte du pot
+        public Carte getCurrentCartes()
         {
             return this.currentCarte;
         }
 
-        public void playCarte() //Joue une carte du pot de maniere aléatoire
+        /// <summary>
+        /// Joue une carte du pot de maniere aléatoire
+        /// </summary>
+        public void playCarte()
         {
             Random r = new Random();
             int rang = r.Next(sabot.Count);
@@ -51,7 +54,10 @@ namespace Vautour
             sabot.RemoveAt(rang);
         }
 
-        public void playIAs() //Fait jouer les IAs chacuns à leur tour
+        /// <summary>
+        /// Fait jouer les IAs chacuns à leur tour
+        /// </summary>
+        public void playIAs()
         {
             for (int i = 0; i < players.Count() - 1; i++)
             {
@@ -60,7 +66,11 @@ namespace Vautour
             }
         }
 
-        public Player checkTurn()   //Return le joueur remportant la main ou null si égalité
+        /// <summary>
+        /// Retourne le joueur remportant la main ou null si égalité
+        /// </summary>
+        /// <returns> Joueur gagnant </returns>
+        public Player checkTurn() 
         {
             List<Player> p = new List<Player>();
             List<Player> tmp = new List<Player>(this.players);
@@ -94,7 +104,7 @@ namespace Vautour
             }
             if (p.Count != 0)
             {
-                if (currentCarte.getType() == 1)    //Cherche la carte la plus élevé pour choisir le gagnant de la carte souris
+                if (currentCarte.getType() == Common.TypeCarte.Souris)    //Cherche la carte la plus élevé pour choisir le gagnant de la carte souris
                 {
                     winner = p[0];
                     for (int i = 1; i < p.Count; i++)
@@ -122,7 +132,11 @@ namespace Vautour
             else return null;   //retourne null en cas d'égalité
         }
 
-        public void addScore(Player turnWinner) //Ajoute le score au gagnant du tour
+        /// <summary>
+        /// Ajoute le score au gagnant du tour
+        /// </summary>
+        /// <param name="turnWinner"> Gagnant du tour</param>
+        public void addScore(Player turnWinner)
         {
             if (turnWinner != null)
             {
@@ -150,7 +164,11 @@ namespace Vautour
             }
         }
 
-        private Player getWinner()  //Renvoie le joueur avec le score le plus élevé
+        /// <summary>
+        /// Renvoie le joueur avec le score le plus élevé
+        /// </summary>
+        /// <returns> Gagnant de la partie</returns>
+        private Player getWinner()
         {
             Player winner = players[0];
             for (int i = 1; i < players.Count; i++)
@@ -164,16 +182,20 @@ namespace Vautour
             return winner;
         }
 
-        public int[] getCartPlayed()    //Renvoie le tableau de carte joué
+        public int[] getCartPlayed()
         {
             return this.cartePlayed;
         }
 
-        public Carte getCurrentCarte()  //Renvoie la carte sur le pot
+        public Carte getCurrentCarte()
         {
             return this.currentCarte;
         }
 
+        /// <summary>
+        /// Joue un tour
+        /// </summary>
+        /// <param name="indexP1"> Carte selectionner par le joueur</param>
         public void playTurn(int indexP1)
         {
             ((Human)players.Last()).play(indexP1); // Joue la carte de P1

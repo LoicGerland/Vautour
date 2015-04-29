@@ -12,15 +12,15 @@ namespace Vautour
 
         private int indexImage; //Valeur de l'index dans le sabot pour récupérer l'image
 
-        private String couleur; //Couleur de la carte
+        private Common.ColorCarte color; //Couleur de la carte
 
-        private int type; //Type de la carte (0 : classique, 1 : souris, 2 : vautour)
+        private Common.TypeCarte type; //Type de la carte (0 : classique, 1 : souris, 2 : vautour)
 
-        public Carte(int v, int index, String c,int t)
+        public Carte(int v, int index, Common.ColorCarte c,Common.TypeCarte t)
         {
             this.value = v;
             this.indexImage = index;
-            this.couleur = c;
+            this.color = c;
             this.type = t;
         }
 
@@ -34,28 +34,14 @@ namespace Vautour
             return this.indexImage;
         }
 
-        public String getCouleur()
+        public Common.ColorCarte getCouleur()
         {
-            return this.couleur;
+            return this.color;
         }
 
-        public int getType()
+        public Common.TypeCarte getType()
         {
             return this.type;
-        }
-
-        public String getStringByType()
-        {
-            switch (this.type)
-            {
-                case 0:
-                    return "Classique";
-                case 1:
-                    return "Souris";
-                case 2:
-                    return "Vautour";
-            }
-            return null;
         }
     }
 }

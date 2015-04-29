@@ -8,30 +8,44 @@ namespace Vautour
 {
     class IA : Player
     {
-        private int difficulty; //Difficulté de l'IA (0: facile, 1: Intermédiaire, 2: Difficile, 3: Chuck Norris)
+        private Common.Difficulty difficulty; //Difficulté de l'IA
 
-        public IA(String n,List<Carte> m,int score,int d) : base(n, m, score)   //Creer un IA comme un Joueur avec un attribut difficulté en plus
+        public IA(String n,List<Carte> m,int score,Common.Difficulty d) : base(n, m, score)
         {
             this.difficulty = d;
         }
 
+        /// <summary>
+        /// Selectionne la méthode de jeu de l'IA en fonction de sa difficulté
+        /// </summary>
+        /// <param name="game">Partie en cours</param>
+        /// <returns></returns>
         public Carte play(Game game)
         {
-            switch (this.difficulty)    //Appel differente fonction pour jouer selon la difficulté de l'IA
+            if (this.difficulty == Common.Difficulty.Facile)   
             {
-                case 0 :
                     return playrand();
-                case 1 :
-                    return playrandInt(abs(game.getCurrentCarte().getValue()));
-                case 2 :
-                    return playSmart(game.getCurrentCarte(), game.getCartPlayed(),game.getPlayers().Count);
-                case 3 :
-                    return playChuck(game.getPlayers().Last().getLastCardPlayed(),game.getCurrentCarte());
-                default: return playrand();
             }
+            if (this.difficulty == Common.Difficulty.Intermédiaire)
+            {
+                    return playrandInt(Math.Abs(game.getCurrentCarte().getValue()));
+            }
+            if (this.difficulty == Common.Difficulty.Difficile)
+            {
+                    return playSmart(game.getCurrentCarte(), game.getCartPlayed(),game.getPlayers().Count);
+            }
+            if (this.difficulty == Common.Difficulty.ChuckNorris)
+            {
+                    return playChuck(game.getPlayers().Last().getLastCardPlayed(),game.getCurrentCarte());
+            }
+            return playrand();
         }
 
-        public Carte playrand() //Joue une carte de façon aléatoire parmis toutes les cartes de sa main
+        /// <summary>
+        /// Joue une carte de façon aléatoire parmis toutes les cartes de sa main
+        /// </summary>
+        /// <returns> La carte jouée</returns>
+        public Carte playrand()
         {
             Random r = new Random();
             int i = r.Next(0, this.getCartes().Count());
@@ -41,18 +55,26 @@ namespace Vautour
             return C;
         }
 
+        /// <summary>
+        /// Joue la carte juste au dessus de celle du joueur
+        /// S'il ne possède pas la carte au dessus, joue la meme si la valeur absolu de la carteen jeu est > 4
+        /// Sinon il joue sa plus faible carte
+        /// </summary>
+        /// <param name="P1"> Le joueur </param>
+        /// <param name="Pot"> La carte en jeu </param>
+        /// <returns> La carte jouée </returns>
         public Carte playChuck(Carte P1, Carte Pot) 
         {
             foreach (Carte C in this.getCartes())
             {
-                if (C.getValue() == P1.getValue()+1)    //Joue la carte juste au dessus de celle de P1
+                if (C.getValue() == P1.getValue()+1)  
                 {
                     this.removeCarte(C);
                     this.setLastCardPlayed(C);
                     return C;
                 }
             }
-            if (abs(Pot.getValue()) > 4)    //Si pas au dessus, joue la meme si la valeur absolu de la carte est >4
+            if (Math.Abs(Pot.getValue()) > 4)    
             {
                 foreach (Carte C in this.getCartes())
                 {
@@ -64,19 +86,18 @@ namespace Vautour
                     }
                 }
             }
-            Carte c = this.getCartes()[0];  //Sinon joue sa plus faible
+            Carte c = this.getCartes()[0];
             this.removeCarte(c);
             this.lastCardPlayed = c;
             return c;
         }
 
-        public int abs(int i)   //Renvoie la valeur absolu d'un entier
-        {
-            if (i < 0) { return -i; }
-            else return i;
-        }
-
-        public Carte playrandInt(int valCarte)  //Joue de maniere aléatoire parmis des intervalles de valeurs selon la carte du pot
+        /// <summary>
+        /// Joue de maniere aléatoire parmis des intervalles de valeurs selon la carte en jeu
+        /// </summary>
+        /// <param name="valCarte">Valeur de la carte en jeu</param>
+        /// <returns> La carte jouée </returns>
+        public Carte playrandInt(int valCarte)  //
         {
             Random r = new Random();
             int i=-1;
@@ -106,8 +127,8 @@ namespace Vautour
                     i = this.getCartes().Count-1;
                     break;
             }
-            if (minValue < 0) { minValue = 0; } //Empeche d'avoir un index or de la liste de carte
-            if (maxValue > this.getCartes().Count) { maxValue = this.getCartes().Count; } //Empeche d'avoir un index or de la liste de carte
+            if (minValue < 0) { minValue = 0; } //Empeche d'avoir un index hors de la liste de carte
+            if (maxValue > this.getCartes().Count) { maxValue = this.getCartes().Count; } //Empeche d'avoir un index hors de la liste de carte
             while (maxValue <= minValue) { maxValue++; }    //S'assure des bornes min et max de l'intervalle
             Carte C = null;
             while(C==null)
@@ -118,6 +139,13 @@ namespace Vautour
             return playCard(C); //Dès que C != null, on joue la carte
         }
 
+        /// <summary>
+        /// Joue une carte en fonction de la valeur la carte en jeu
+        /// </summary>
+        /// <param name="currentCarte"> Carte en jeu </param>
+        /// <param name="cartPlayed"> Tableau des cartes déjà jouées par les joueurs </param>
+        /// <param name="nbJoueur"> Nombre de joueur dans la partie </param>
+        /// <returns> La carte à jouée </returns>
         public Carte playSmart(Carte currentCarte, int[] cartPlayed, int nbJoueur)
         {
             switch (currentCarte.getValue())
@@ -149,34 +177,34 @@ namespace Vautour
             return null;
         }
 
-        public Carte playCardByValue(int value) //Joue la carte de valeur value si dispo dans la main
-        {
-            foreach(Carte C in this.getCartes())
-            {
-                if (C.getValue() == value)
-                {
-                    return playCard(C);
-                }
-            }
-            return null;    //sinon renvoie null
-        }
-
+        
+        /// <summary>
+        /// Joue une carte en fonction d'un intervalle donnée
+        /// Le choix de la carte se fait en fonction des cartes déjà jouées
+        /// </summary>
+        /// <param name="min"> valeur minimal de la carte </param>
+        /// <param name="max"> valeur maximal de la carte </param>
+        /// <param name="CartPlayed"> Tableau des cartes déjà jouées </param>
+        /// <param name="nbJoueur"> Nombre de joueur de la partie </param>
+        /// <returns> La carte jouée </returns>
         public Carte playCardInRank(int min, int max, int[] CartPlayed, int nbJoueur)
         {
             //Verification des bornes sup et inf
             if (min > max) { int tmp = min; min = max; max = tmp; }
 
-            //Verification d'au moins une carte dans l'intervalle
+            //Verification qu'il y a au moins une carte dans l'intervalle
             while(!isInRank(min,max))
             {
                 if (max <14) { max++; } //Sinon on grandi l'intervalle
                 else if (min > 1) { min--; }
             }
+
             int c = min;
             for (int i = min+1; i <= max; i++)
             {
                 if (CartPlayed[i] > CartPlayed[c] ) { c = i ; } //Recherche de la carte la plus jouer parmis l'intervalle
             }
+
             Carte carteAJouer;
             Random rand = new Random();
             int r = rand.Next(100);     //Modifie la valeur de la carte choisi de facon aléatoire
@@ -187,6 +215,7 @@ namespace Vautour
             else if (r >= 90 && nbJoueur == 5) { c += 2; }         // 10% des cas : +2 (seulement à 5 joueurs)
             if (c < 1) { c = 1; }   //Plus basse carte jouable
             else if (c > 15) { c = 15; }    //Plus grande carte jouable
+
             do
             {
                 carteAJouer = this.playCardByValue(c);  //Joue la valeur defini precedement
@@ -194,7 +223,26 @@ namespace Vautour
                 else c = min;           //Retourne au debut de l'intervalle si la fin a été atteinte
             }
             while (carteAJouer == null);    //Permet de s'assurer de trouver une carte
-            return carteAJouer;             //Retourne la carte jouer
+
+            return carteAJouer;  
+        }
+
+        /// <summary>
+        /// Joue la carte de valeur value si dispo dans la main
+        /// Si elle n'est pas disponible on renvoi null
+        /// </summary>
+        /// <param name="value">Valeur de la carte à jouer</param>
+        /// <returns> La carte à jouée </returns>
+        public Carte playCardByValue(int value)
+        {
+            foreach (Carte C in this.getCartes())
+            {
+                if (C.getValue() == value)
+                {
+                    return playCard(C);
+                }
+            }
+            return null;
         }
 
         private bool isInRank(int min, int max) //Verifie qu'il existe bien au moins une carte dont la valeur est comprise entre les bornes min et max
