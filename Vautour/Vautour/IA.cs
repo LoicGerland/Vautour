@@ -149,18 +149,18 @@ namespace Vautour
         {
             switch (currentCarte.getValue())
             {
-                //Pour une carte de -2 à 2, on joue les cartes de 1 à 4
+                //Pour une carte de -2 à 2, on joue les cartes de 1 à 5
                 case -2:
                 case -1:
                 case 1:
                 case 2:
-                    return playCardInRank(1, 4, cartPlayed, nbJoueur);
-                //Pour une carte de -4, -3 ou 3, 4, on joue les cartes de 4 à 9
+                    return playCardInRank(1, 5, cartPlayed, nbJoueur);
+                //Pour une carte de -4, -3 ou 3, 4, on joue les cartes de 6 à 9
                 case -4:
                 case -3:
                 case 3:
                 case 4:
-                    return playCardInRank(4, 9, cartPlayed, nbJoueur);
+                    return playCardInRank(6, 9, cartPlayed, nbJoueur);
                 //Pour une carte de -5 ou 5 à 7, on joue les cartes de 9 à 13
                 case -5:
                 case 5:
@@ -187,24 +187,24 @@ namespace Vautour
         {
             switch (currentCarte.getValue())
             {
-                //Pour une carte de -2 à 2, on joue les cartes de 13 à 15
+                //Pour une carte de -2 à 2, on joue les cartes de 9 à 15
                 case -2:
                 case -1:
                 case 1:
                 case 2:
-                    return playCardInRank(13, 15, cartPlayed, nbJoueur);
+                    return playCardInRank(9, 15, cartPlayed, nbJoueur);
                 //Pour une carte de -4, -3 ou 3, 4, on joue les cartes de 9 à 13
                 case -4:
                 case -3:
                 case 3:
                 case 4:
-                    return playCardInRank(9, 13, cartPlayed, nbJoueur);
+                    return playCardInRank(7, 13, cartPlayed, nbJoueur);
                 //Pour une carte de -5 ou 5 à 7, on joue les cartes de 4 à 9
                 case -5:
                 case 5:
                 case 6:
                 case 7:
-                    return playCardInRank(4, 9, cartPlayed, nbJoueur);
+                    return playCardInRank(3, 7, cartPlayed, nbJoueur);
                 //Pour une carte de 8 à 10, on joue les cartes de 1 à 4
                 case 8:
                 case 9:
@@ -289,6 +289,11 @@ namespace Vautour
                 if (c.getValue() >= min && c.getValue() <= max) { return true; } //If present, return true
             }
             return false; //if no card present, return false
+        }
+
+        public Common.Difficulty getDifficulty()
+        {
+            return this.difficulty;
         }
     }
 }

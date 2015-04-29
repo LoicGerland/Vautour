@@ -62,6 +62,10 @@
             this.déroulementDuJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recommencerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lb_difIA1 = new System.Windows.Forms.Label();
+            this.lb_difIA2 = new System.Windows.Forms.Label();
+            this.lb_difIA3 = new System.Windows.Forms.Label();
+            this.lb_difIA4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IA4)).BeginInit();
@@ -330,7 +334,7 @@
             // lb_Score_IA4
             // 
             this.lb_Score_IA4.AutoSize = true;
-            this.lb_Score_IA4.Location = new System.Drawing.Point(694, 378);
+            this.lb_Score_IA4.Location = new System.Drawing.Point(694, 400);
             this.lb_Score_IA4.Name = "lb_Score_IA4";
             this.lb_Score_IA4.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA4.TabIndex = 6;
@@ -339,7 +343,7 @@
             // lb_Score_IA2
             // 
             this.lb_Score_IA2.AutoSize = true;
-            this.lb_Score_IA2.Location = new System.Drawing.Point(215, 191);
+            this.lb_Score_IA2.Location = new System.Drawing.Point(215, 210);
             this.lb_Score_IA2.Name = "lb_Score_IA2";
             this.lb_Score_IA2.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA2.TabIndex = 7;
@@ -348,7 +352,7 @@
             // lb_Score_IA3
             // 
             this.lb_Score_IA3.AutoSize = true;
-            this.lb_Score_IA3.Location = new System.Drawing.Point(538, 191);
+            this.lb_Score_IA3.Location = new System.Drawing.Point(538, 210);
             this.lb_Score_IA3.Name = "lb_Score_IA3";
             this.lb_Score_IA3.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA3.TabIndex = 7;
@@ -366,7 +370,7 @@
             // lb_Score_IA1
             // 
             this.lb_Score_IA1.AutoSize = true;
-            this.lb_Score_IA1.Location = new System.Drawing.Point(45, 378);
+            this.lb_Score_IA1.Location = new System.Drawing.Point(45, 400);
             this.lb_Score_IA1.Name = "lb_Score_IA1";
             this.lb_Score_IA1.Size = new System.Drawing.Size(13, 13);
             this.lb_Score_IA1.TabIndex = 6;
@@ -421,6 +425,42 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click_1);
             // 
+            // lb_difIA1
+            // 
+            this.lb_difIA1.AutoSize = true;
+            this.lb_difIA1.Location = new System.Drawing.Point(45, 382);
+            this.lb_difIA1.Name = "lb_difIA1";
+            this.lb_difIA1.Size = new System.Drawing.Size(35, 13);
+            this.lb_difIA1.TabIndex = 9;
+            this.lb_difIA1.Text = "label1";
+            // 
+            // lb_difIA2
+            // 
+            this.lb_difIA2.AutoSize = true;
+            this.lb_difIA2.Location = new System.Drawing.Point(215, 194);
+            this.lb_difIA2.Name = "lb_difIA2";
+            this.lb_difIA2.Size = new System.Drawing.Size(35, 13);
+            this.lb_difIA2.TabIndex = 9;
+            this.lb_difIA2.Text = "label1";
+            // 
+            // lb_difIA3
+            // 
+            this.lb_difIA3.AutoSize = true;
+            this.lb_difIA3.Location = new System.Drawing.Point(538, 194);
+            this.lb_difIA3.Name = "lb_difIA3";
+            this.lb_difIA3.Size = new System.Drawing.Size(35, 13);
+            this.lb_difIA3.TabIndex = 9;
+            this.lb_difIA3.Text = "label1";
+            // 
+            // lb_difIA4
+            // 
+            this.lb_difIA4.AutoSize = true;
+            this.lb_difIA4.Location = new System.Drawing.Point(694, 382);
+            this.lb_difIA4.Name = "lb_difIA4";
+            this.lb_difIA4.Size = new System.Drawing.Size(35, 13);
+            this.lb_difIA4.TabIndex = 9;
+            this.lb_difIA4.Text = "label1";
+            // 
             // plateau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,6 +469,10 @@
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(848, 649);
             this.ControlBox = false;
+            this.Controls.Add(this.lb_difIA4);
+            this.Controls.Add(this.lb_difIA3);
+            this.Controls.Add(this.lb_difIA2);
+            this.Controls.Add(this.lb_difIA1);
             this.Controls.Add(this.lb_Score_P1);
             this.Controls.Add(this.lb_Score_IA3);
             this.Controls.Add(this.lb_Score_IA2);
@@ -504,6 +548,10 @@
         private System.Windows.Forms.ToolStripMenuItem déroulementDuJeuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recommencerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+        private System.Windows.Forms.Label lb_difIA1;
+        private System.Windows.Forms.Label lb_difIA2;
+        private System.Windows.Forms.Label lb_difIA3;
+        private System.Windows.Forms.Label lb_difIA4;
     }
 }
 

@@ -53,40 +53,50 @@ namespace Vautour
 
             //Activation ou désactivation des joueurs suivant le nombre
             highLightPlayer(6);
-            pb_IA1.Enabled = false; lb_IA1.Enabled = false; lb_IA1.Visible = false; lb_Score_IA1.Visible = false;
-            pb_IA2.Enabled = false; lb_IA2.Enabled = false; lb_IA2.Visible = false; lb_Score_IA2.Visible = false;
-            pb_IA3.Enabled = false; lb_IA3.Enabled = false; lb_IA3.Visible = false; lb_Score_IA3.Visible = false;
-            pb_IA4.Enabled = false; lb_IA4.Enabled = false; lb_IA4.Visible = false; lb_Score_IA4.Visible = false;
+            pb_IA1.Enabled = false; lb_IA1.Enabled = false; lb_IA1.Visible = false; lb_Score_IA1.Visible = false; lb_difIA1.Visible = false;
+            pb_IA2.Enabled = false; lb_IA2.Enabled = false; lb_IA2.Visible = false; lb_Score_IA2.Visible = false; lb_difIA2.Visible = false;
+            pb_IA3.Enabled = false; lb_IA3.Enabled = false; lb_IA3.Visible = false; lb_Score_IA3.Visible = false; lb_difIA3.Visible = false;
+            pb_IA4.Enabled = false; lb_IA4.Enabled = false; lb_IA4.Visible = false; lb_Score_IA4.Visible = false; lb_difIA4.Visible = false;
             lb_P1.Text = joueurs.Last().getNom();
             switch (joueurs.Count())
             {
                 case 2: //Permet l'affichage de 2 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[0].getNom(); lb_Score_IA1.Visible = true;
+                    lb_difIA1.Visible = true; lb_difIA1.Text =((IA)joueurs[0]).getDifficulty().ToString();
                     break;
                 case 3: //Permet l'affichage de 3 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[1].getNom(); lb_Score_IA1.Visible = true;
+                    lb_difIA1.Visible = true; lb_difIA1.Text =((IA)joueurs[1]).getDifficulty().ToString();
                     pb_IA2.Enabled = true; lb_IA2.Enabled = true;
-                    lb_IA2.Visible = true; lb_IA2.Text = joueurs[0].getNom(); lb_Score_IA1.Visible = true;
+                    lb_IA2.Visible = true; lb_IA2.Text = joueurs[0].getNom(); lb_Score_IA2.Visible = true;
+                    lb_difIA2.Visible = true; lb_difIA2.Text =((IA)joueurs[0]).getDifficulty().ToString();
                     break;
                 case 4: //Permet l'affichage de 4 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[2].getNom(); lb_Score_IA1.Visible = true;
+                    lb_difIA1.Visible = true; lb_difIA1.Text =((IA)joueurs[2]).getDifficulty().ToString();
                     pb_IA2.Enabled = true; lb_IA2.Enabled = true;
                     lb_IA2.Visible = true; lb_IA2.Text = joueurs[1].getNom(); lb_Score_IA2.Visible = true;
+                    lb_difIA2.Visible = true; lb_difIA2.Text =((IA)joueurs[1]).getDifficulty().ToString();
                     pb_IA3.Enabled = true; lb_IA3.Enabled = true;
                     lb_IA3.Visible = true; lb_IA3.Text = joueurs[0].getNom(); lb_Score_IA3.Visible = true;
+                    lb_difIA3.Visible = true; lb_difIA3.Text =((IA)joueurs[0]).getDifficulty().ToString();
                     break;
                 case 5: //Permet l'affichage de 5 joueurs
                     pb_IA1.Enabled = true; lb_IA1.Enabled = true;
                     lb_IA1.Visible = true; lb_IA1.Text = joueurs[3].getNom(); lb_Score_IA1.Visible = true;
+                    lb_difIA1.Visible = true; lb_difIA1.Text =((IA)joueurs[3]).getDifficulty().ToString();
                     pb_IA2.Enabled = true; lb_IA2.Enabled = true;
                     lb_IA2.Visible = true; lb_IA2.Text = joueurs[2].getNom(); lb_Score_IA2.Visible = true;
+                    lb_difIA2.Visible = true; lb_difIA2.Text =((IA)joueurs[2]).getDifficulty().ToString();
                     pb_IA3.Enabled = true; lb_IA3.Enabled = true;
                     lb_IA3.Visible = true; lb_IA3.Text = joueurs[1].getNom(); lb_Score_IA3.Visible = true;
+                    lb_difIA3.Visible = true; lb_difIA3.Text =((IA)joueurs[1]).getDifficulty().ToString();
                     pb_IA4.Enabled = true; lb_IA4.Enabled = true;
                     lb_IA4.Visible = true; lb_IA4.Text = joueurs[0].getNom(); lb_Score_IA4.Visible = true;
+                    lb_difIA4.Visible = true; lb_difIA4.Text =((IA)joueurs[0]).getDifficulty().ToString();
                     break;
             }
         }
