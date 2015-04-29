@@ -244,7 +244,7 @@
             this.tb_IA3.Name = "tb_IA3";
             this.tb_IA3.Size = new System.Drawing.Size(100, 20);
             this.tb_IA3.TabIndex = 8;
-            this.tb_IA3.Text = "BOT_Titi";
+            this.tb_IA3.Text = "BOT3";
             // 
             // tb_IA4
             // 
@@ -255,7 +255,7 @@
             this.tb_IA4.Name = "tb_IA4";
             this.tb_IA4.Size = new System.Drawing.Size(100, 20);
             this.tb_IA4.TabIndex = 10;
-            this.tb_IA4.Text = "BOT_pipi";
+            this.tb_IA4.Text = "BOT4";
             // 
             // menu_formMenu
             // 

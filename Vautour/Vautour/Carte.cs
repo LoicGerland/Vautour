@@ -14,7 +14,7 @@ namespace Vautour
 
         private Common.ColorCarte color; //Couleur de la carte
 
-        private Common.TypeCarte type; //Type de la carte (0 : classique, 1 : souris, 2 : vautour)
+        private Common.TypeCarte type; //Type de la carte
 
         public Carte(int v, int index, Common.ColorCarte c,Common.TypeCarte t)
         {

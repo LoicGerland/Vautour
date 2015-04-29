@@ -428,6 +428,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(848, 649);
+            this.ControlBox = false;
             this.Controls.Add(this.lb_Score_P1);
             this.Controls.Add(this.lb_Score_IA3);
             this.Controls.Add(this.lb_Score_IA2);

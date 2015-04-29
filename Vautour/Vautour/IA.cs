@@ -24,7 +24,7 @@ namespace Vautour
         {
             if (this.difficulty == Common.Difficulty.Facile)   
             {
-                    return playrand();
+                return playEasy(game.getCurrentCarte(), game.getCartPlayed(), game.getPlayers().Count);
             }
             if (this.difficulty == Common.Difficulty.Intermédiaire)
             {
@@ -87,9 +87,8 @@ namespace Vautour
                 }
             }
             Carte c = this.getCartes()[0];
-            this.removeCarte(c);
-            this.lastCardPlayed = c;
-            return c;
+
+            return playCard(c);
         }
 
         /// <summary>
@@ -173,6 +172,44 @@ namespace Vautour
                 case 9:
                 case 10:
                     return playCardInRank(13, 15, cartPlayed, nbJoueur);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Joue une carte en fonction de la valeur la carte en jeu
+        /// </summary>
+        /// <param name="currentCarte"> Carte en jeu </param>
+        /// <param name="cartPlayed"> Tableau des cartes déjà jouées par les joueurs </param>
+        /// <param name="nbJoueur"> Nombre de joueur dans la partie </param>
+        /// <returns> La carte à jouée </returns>
+        public Carte playEasy(Carte currentCarte, int[] cartPlayed, int nbJoueur)
+        {
+            switch (currentCarte.getValue())
+            {
+                //Pour une carte de -2 à 2, on joue les cartes de 13 à 15
+                case -2:
+                case -1:
+                case 1:
+                case 2:
+                    return playCardInRank(13, 15, cartPlayed, nbJoueur);
+                //Pour une carte de -4, -3 ou 3, 4, on joue les cartes de 9 à 13
+                case -4:
+                case -3:
+                case 3:
+                case 4:
+                    return playCardInRank(9, 13, cartPlayed, nbJoueur);
+                //Pour une carte de -5 ou 5 à 7, on joue les cartes de 4 à 9
+                case -5:
+                case 5:
+                case 6:
+                case 7:
+                    return playCardInRank(4, 9, cartPlayed, nbJoueur);
+                //Pour une carte de 8 à 10, on joue les cartes de 1 à 4
+                case 8:
+                case 9:
+                case 10:
+                    return playCardInRank(1, 4, cartPlayed, nbJoueur);
             }
             return null;
         }
